@@ -2,23 +2,21 @@ import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 import { useModal } from "../hooks/useModal";
 import { AddExpense } from "./addExpense";
+import { AddUser } from "./addUser";
 
 export const Cuentas = () => {
   const { isOpen, openModal, closeModal } = useModal();
-  const [users, setUSers] = useState([
+  const [users, setUsers] = useState([
     {
       nombre: "Manuel",
-      importe: 60,
       conceptos: [{ concepto: "Gasolina", importe: 60 }],
     },
     {
       nombre: "Antonio",
-      importe: 0,
       conceptos: [],
     },
     {
       nombre: "Maria",
-      importe: 200,
       conceptos: [
         { concepto: "Comida", importe: 100 },
         { concepto: "Gasolina", importe: 100 },
@@ -26,7 +24,6 @@ export const Cuentas = () => {
     },
     {
       nombre: "Rodrigo",
-      importe: 230,
       conceptos: [{ concepto: "Hotel", importe: 230 }],
     },
   ]);
@@ -35,31 +32,52 @@ export const Cuentas = () => {
   const [resultado, setResultado] = useState([]);
 
   useEffect(() => {
-    let gasto = 0;
-    users.map((user) => {
-      gasto += user.importe;
+    console.log();
+    const importeUsuarios = users.map((user) => {
+      return {
+        nombre: user.nombre,
+        importe: user.conceptos.reduce((a, b) => {
+          if (user.conceptos.length === 0) {
+            return 0;
+          } else if (user.conceptos.length === 1) {
+            return user.conceptos[0].importe;
+          }
+          return a + b.importe;
+        }, 0),
+      };
     });
+
+    const gasto = importeUsuarios.reduce((a, b) => a + b.importe, 0);
     setGastoTotal(gasto);
+
     const gastoMedio = Math.round((gasto / users.length) * 100) / 100;
 
-    let resultadoCuentas = [];
-    users.map((user) => {
-      resultadoCuentas.push({
+    const resultadoCuentas = importeUsuarios.map((user) => {
+      return {
         usuario: user.nombre,
         resultado: user.importe - gastoMedio,
-      });
+      };
     });
     setResultado(resultadoCuentas);
   }, [users]);
 
-  const añadirGasto = (gasto) => {
+  const añadirGasto = (formInputs) => {
     const arrayUsers = [...users];
-    console.log(arrayUsers);
+    const userIndex = arrayUsers.findIndex(
+      (user) => user.nombre === formInputs.user
+    );
+    console.log(formInputs.cuantia);
+    arrayUsers[userIndex].conceptos.push({
+      concepto: formInputs.concepto,
+      importe: formInputs.cuantia,
+    });
+
+    setUsers([...arrayUsers]);
   };
 
   return (
     <>
-      <h3>ejemplo cuentas</h3>;
+      <h3>ejemplo cuentas</h3>
       <ul>
         {users.map((user) => {
           return user.conceptos.map((concepto) => {
@@ -76,7 +94,7 @@ export const Cuentas = () => {
         })}
       </ul>
       <p>Total: {gastoTotal}</p>
-      <button>Añadir usuario</button>
+      <button onClick={openModal}>Añadir usuario</button>
       <button onClick={openModal}>Añadir gasto</button>
       <h4>Resultado cuentas</h4>
       <ul>
@@ -94,6 +112,15 @@ export const Cuentas = () => {
           users={users.map((user) => user.nombre)}
           añadirGasto={añadirGasto}
         ></AddExpense>
+      ) : (
+        <></>
+      )}
+      {isOpen ? (
+        <AddUser
+          closeModal={closeModal}
+          users={users.map((user) => user.nombre)}
+          añadirGasto={añadirGasto}
+        ></AddUser>
       ) : (
         <></>
       )}

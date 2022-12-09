@@ -10,7 +10,7 @@ export const MainHeader = () => {
       <Link to="/">
         <h1>AMitas</h1>
       </Link>
-      {user ? <spam>{user}</spam> : null}
+      {user ? <span>{user}</span> : null}
       <DropDownMenu></DropDownMenu>
     </header>
   );

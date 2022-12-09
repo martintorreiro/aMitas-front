@@ -22,7 +22,7 @@ export const useRegister = () => {
       }
       await registerService(userName, email, password);
 
-      navigate("/validate");
+      navigate("/validate",{ state: { email: email } });
     } catch (error) {
       setLoading("");
       setError(error.message);

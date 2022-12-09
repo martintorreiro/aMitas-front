@@ -31,3 +31,23 @@ export const loginService = async (email, password) => {
   console.log(json);
   return json;
 };
+
+export const validateService = async (email, registrationCode) => {
+  console.log(email,registrationCode)
+  const response = await fetch(`http://localhost:3100/validate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, registrationCode }),
+  });
+
+  const json = await response.json();
+  console.log("json",json);
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  
+  return json;
+};

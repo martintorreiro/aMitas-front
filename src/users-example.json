@@ -1,0 +1,21 @@
+[
+    {
+      "nombre": "Manuel",
+      "conceptos": [{ "concepto": "Gasolina", "importe": 60 }]
+    },
+    {
+      "nombre": "Antonio",
+      "conceptos": []
+    },
+    {
+      "nombre": "Maria",
+      "conceptos": [
+        { "concepto": "Comida", "importe": 100 },
+        { "concepto": "Gasolina", "importe": 100 }
+      ]
+    },
+    {
+      "nombre": "Rodrigo",
+      "conceptos": [{ "concepto": "Hotel", "importe": 230 }]
+    }
+  ]

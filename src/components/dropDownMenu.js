@@ -18,7 +18,7 @@ export const DropDownMenu = () => {
       <nav className={`menu-list ${clicked ? "active" : "inactive"}`}>
         <ul>
           <Link to="/">
-            <li onClick={() => setClicked(false)}>Home</li>
+            <li onClick={() => setClicked(false)}>Inicio</li>
           </Link>
           {user ? (
             <Link to="/">
@@ -31,7 +31,7 @@ export const DropDownMenu = () => {
           )}
 
           <Link to="/work-page">
-            <li onClick={() => setClicked(false)}>Work Page</li>
+            <li onClick={() => setClicked(false)}>Pruébalo</li>
           </Link>
         </ul>
       </nav>

@@ -1,47 +1,24 @@
 import { useEffect, useState } from "react";
 import { v4 } from "uuid";
-import { useModal } from "../hooks/useModal";
-import { AddExpense } from "./addExpense";
-import { AddUser } from "./addUser";
+import { AddExpense } from "../components/addExpense";
+import { AddUser } from "../components/addUser";
+import usersJSON from "../users-example.json"
 
 export const Cuentas = () => {
-  const { isOpen, openModal, closeModal } = useModal();
-  const [users, setUsers] = useState([
-    {
-      nombre: "Manuel",
-      conceptos: [{ concepto: "Gasolina", importe: 60 }],
-    },
-    {
-      nombre: "Antonio",
-      conceptos: [],
-    },
-    {
-      nombre: "Maria",
-      conceptos: [
-        { concepto: "Comida", importe: 100 },
-        { concepto: "Gasolina", importe: 100 },
-      ],
-    },
-    {
-      nombre: "Rodrigo",
-      conceptos: [{ concepto: "Hotel", importe: 230 }],
-    },
-  ]);
-
+  
+  const [users, setUsers] = useState(usersJSON);
   const [gastoTotal, setGastoTotal] = useState(0);
   const [resultado, setResultado] = useState([]);
 
   useEffect(() => {
-    console.log();
+   
     const importeUsuarios = users.map((user) => {
       return {
         nombre: user.nombre,
         importe: user.conceptos.reduce((a, b) => {
           if (user.conceptos.length === 0) {
             return 0;
-          } else if (user.conceptos.length === 1) {
-            return user.conceptos[0].importe;
-          }
+          } 
           return a + b.importe;
         }, 0),
       };
@@ -94,8 +71,17 @@ export const Cuentas = () => {
         })}
       </ul>
       <p>Total: {gastoTotal}</p>
-      <button onClick={openModal}>Añadir usuario</button>
-      <button onClick={openModal}>Añadir gasto</button>
+      <AddExpense
+          users={users.map((user) => user.nombre)}
+          añadirGasto={añadirGasto}
+        ></AddExpense>
+      
+      
+        <AddUser
+          users={users.map((user) => user.nombre)}
+          añadirGasto={añadirGasto}
+        ></AddUser>
+      
       <h4>Resultado cuentas</h4>
       <ul>
         {resultado.map((user) => {
@@ -106,24 +92,9 @@ export const Cuentas = () => {
           );
         })}
       </ul>
-      {isOpen ? (
-        <AddExpense
-          closeModal={closeModal}
-          users={users.map((user) => user.nombre)}
-          añadirGasto={añadirGasto}
-        ></AddExpense>
-      ) : (
-        <></>
-      )}
-      {isOpen ? (
-        <AddUser
-          closeModal={closeModal}
-          users={users.map((user) => user.nombre)}
-          añadirGasto={añadirGasto}
-        ></AddUser>
-      ) : (
-        <></>
-      )}
+      
+        
+      
     </>
   );
 };

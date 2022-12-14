@@ -1,6 +1,8 @@
 import { v4 } from "uuid";
+import { useModal } from "../hooks/useModal";
 
-export const AddExpense = ({ closeModal, users, añadirGasto }) => {
+export const AddExpense = ({ users, añadirGasto }) => {
+  const { isOpen, openModal, closeModal } = useModal();
   const handleForm = async (e) => {
     e.preventDefault();
     const formInputs = {
@@ -19,7 +21,8 @@ export const AddExpense = ({ closeModal, users, añadirGasto }) => {
 
   return (
     <div>
-      <button onClick={closeModal}>X</button>
+      <button onClick={openModal}>añadir Gasto</button>
+      {isOpen?<div> <button onClick={closeModal}>X</button>
       <form onSubmit={handleForm}>
         <label>
           Concepto:
@@ -41,10 +44,11 @@ export const AddExpense = ({ closeModal, users, añadirGasto }) => {
         </label>
         <label>
           Cuantía:
-          <input type="number" id="cuantia" name="cuantia" />
+          <input type="text" id="cuantia" name="cuantia" />
         </label>
         <button>Añadir</button>
-      </form>
+      </form></div>:<></>}
+     
     </div>
   );
 };

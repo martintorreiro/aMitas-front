@@ -16,10 +16,11 @@ body {
 li {
   list-style: none;
 }
-a {
+ a {
   text-decoration: none;
-  color: var(--primary-blue);
+  
 }
+header a {color: var(--primary-blue);}
 
 #root {
   height: 100vh;
@@ -155,4 +156,23 @@ img {
 .register-form .active-button {
   background-color: rgb(236, 55, 100);
   color: white;
+}
+
+
+.wp--selection-container{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 50px;
+flex-wrap: wrap;
+padding: 50px;
+}
+
+.selection-box{
+  border: 1px solid red;
+  height: 400px;
+  width: 250px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
 }

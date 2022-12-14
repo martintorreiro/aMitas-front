@@ -3,6 +3,7 @@ import { Login } from "./pages/login";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { Home } from "./pages/home";
 import { MainHeader } from "./components/main-header";
+import { Cuentas } from "./pages/calc-example";
 import { WorkPage } from "./pages/work-page";
 import { Register } from "./pages/register";
 import { Validate } from "./pages/validation";
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/work-page" element={<WorkPage />}></Route>
+          <Route path="/prueba" element={<Cuentas />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/validate" element={<Validate />}></Route>
         </Routes>

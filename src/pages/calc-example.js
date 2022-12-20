@@ -1,57 +1,16 @@
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { v4 } from "uuid";
 import { AddExpense } from "../components/addExpense";
 import { AddUser } from "../components/addUser";
-import usersJSON from "../users-example.json"
+import { useCalcFunctions } from "../hooks/useCalcFunctions";
 
 export const Cuentas = () => {
-  
-  const [users, setUsers] = useState(usersJSON);
-  const [gastoTotal, setGastoTotal] = useState(0);
-  const [resultado, setResultado] = useState([]);
+  const { mode } = useParams();
 
-  useEffect(() => {
-   
-    const importeUsuarios = users.map((user) => {
-      return {
-        nombre: user.nombre,
-        importe: user.conceptos.reduce((a, b) => {
-          if (user.conceptos.length === 0) {
-            return 0;
-          } 
-          return a + b.importe;
-        }, 0),
-      };
-    });
+  const { users, gastoTotal, resultado, añadirGasto, añadirUsuario } =
+    useCalcFunctions(mode);
 
-    const gasto = importeUsuarios.reduce((a, b) => a + b.importe, 0);
-    setGastoTotal(gasto);
-
-    const gastoMedio = Math.round((gasto / users.length) * 100) / 100;
-
-    const resultadoCuentas = importeUsuarios.map((user) => {
-      return {
-        usuario: user.nombre,
-        resultado: user.importe - gastoMedio,
-      };
-    });
-    setResultado(resultadoCuentas);
-  }, [users]);
-
-  const añadirGasto = (formInputs) => {
-    const arrayUsers = [...users];
-    const userIndex = arrayUsers.findIndex(
-      (user) => user.nombre === formInputs.user
-    );
-    console.log(formInputs.cuantia);
-    arrayUsers[userIndex].conceptos.push({
-      concepto: formInputs.concepto,
-      importe: formInputs.cuantia,
-    });
-
-    setUsers([...arrayUsers]);
-  };
-
+  console.log(mode);
   return (
     <>
       <h3>ejemplo cuentas</h3>
@@ -72,16 +31,15 @@ export const Cuentas = () => {
       </ul>
       <p>Total: {gastoTotal}</p>
       <AddExpense
-          users={users.map((user) => user.nombre)}
-          añadirGasto={añadirGasto}
-        ></AddExpense>
-      
-      
-        <AddUser
-          users={users.map((user) => user.nombre)}
-          añadirGasto={añadirGasto}
-        ></AddUser>
-      
+        users={users.map((user) => user.nombre)}
+        añadirGasto={añadirGasto}
+      ></AddExpense>
+
+      <AddUser
+        users={users.map((user) => user.nombre)}
+        añadirUsuario={añadirUsuario}
+      ></AddUser>
+
       <h4>Resultado cuentas</h4>
       <ul>
         {resultado.map((user) => {
@@ -92,9 +50,6 @@ export const Cuentas = () => {
           );
         })}
       </ul>
-      
-        
-      
     </>
   );
 };

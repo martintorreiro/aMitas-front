@@ -3,7 +3,7 @@ import { useModal } from "../hooks/useModal";
 
 export const AddExpense = ({ users, añadirGasto }) => {
   const { isOpen, openModal, closeModal } = useModal();
-  const handleForm = async (e) => {
+  const handlerForm = async (e) => {
     e.preventDefault();
     const formInputs = {
       concepto: e.target.elements.concepto.value,
@@ -22,33 +22,39 @@ export const AddExpense = ({ users, añadirGasto }) => {
   return (
     <div>
       <button onClick={openModal}>añadir Gasto</button>
-      {isOpen?<div> <button onClick={closeModal}>X</button>
-      <form onSubmit={handleForm}>
-        <label>
-          Concepto:
-          <input type="text" id="concepto" name="concepto" />
-        </label>
-        <label>
-          Quien pago?
-          <select id="select" name="select">
-            {users.map((user) => (
-              <option key={v4()} value={user}>
-                {user}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Fecha:
-          <input type="date" id="date" name="date" />
-        </label>
-        <label>
-          Cuantía:
-          <input type="text" id="cuantia" name="cuantia" />
-        </label>
-        <button>Añadir</button>
-      </form></div>:<></>}
-     
+      {isOpen ? (
+        <div>
+          {" "}
+          <button onClick={closeModal}>X</button>
+          <form onSubmit={handlerForm}>
+            <label>
+              Concepto:
+              <input type="text" id="concepto" name="concepto" />
+            </label>
+            <label>
+              Quien pago?
+              <select id="select" name="select">
+                {users.map((user) => (
+                  <option key={v4()} value={user}>
+                    {user}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Fecha:
+              <input type="date" id="date" name="date" />
+            </label>
+            <label>
+              Cuantía:
+              <input type="text" id="cuantia" name="cuantia" />
+            </label>
+            <button>Añadir</button>
+          </form>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

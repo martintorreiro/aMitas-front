@@ -15,7 +15,7 @@ export const Validate = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const resValidation = await validateService(state.email, inputCode);
+      await validateService(state.email, inputCode);
       setLoading(false);
       navigate("/login");
     } catch (error) {

@@ -16,11 +16,12 @@ body {
 li {
   list-style: none;
 }
- a {
+a {
   text-decoration: none;
-  
 }
-header a {color: var(--primary-blue);}
+header a {
+  color: var(--primary-blue);
+}
 
 #root {
   height: 100vh;
@@ -56,8 +57,13 @@ img {
   background-color: var(--primary-blue);
 }
 
-.menu-list a {
+.menu-list a,
+.menu-list li {
   color: white;
+}
+
+.menu-list li:hover {
+  cursor: pointer;
 }
 
 .menu-list li {
@@ -158,21 +164,56 @@ img {
   color: white;
 }
 
-
-.wp--selection-container{
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 50px;
-flex-wrap: wrap;
-padding: 50px;
+.select-mode--container {
+  background-color: rgba(82, 82, 82, 0.95);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 30px;
 }
 
-.selection-box{
-  border: 1px solid red;
-  height: 400px;
+.selection-box {
+  height: 300px;
   width: 250px;
-  border-radius: 20px;
-  padding: 20px;
+  border: 1px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.selection-box > a {
+  height: 100%;
+  padding: 40px 20px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.select-mode-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.select-mode-modal button {
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: transparent;
 }

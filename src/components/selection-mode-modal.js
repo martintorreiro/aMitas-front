@@ -6,7 +6,7 @@ export const SelectModeModal = ({ isOpen, closeModal }) => {
       <div className="select-mode--container">
         <button onClick={closeModal}>x</button>
         <section className="selection-box" onClick={closeModal}>
-          <Link to="/calc/create">
+          <Link to="/calc">
             <h3>Crear pagina</h3>
             <p>
               Crea una nueva pagina de cuentas de ejemplo en la que trabajar
@@ -15,7 +15,7 @@ export const SelectModeModal = ({ isOpen, closeModal }) => {
         </section>
 
         <section className="selection-box" onClick={closeModal}>
-          <Link to="/calc/test">
+          <Link to="/calc">
             <h3>Probar</h3>
             <p>
               Prueba una plantilla de ejemplo en la que podras añadir gastos y

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
-export const DropDownMenu = ({ openModal }) => {
+export const DropDownMenu = () => {
   const [clicked, setClicked] = useState(false);
   const { user, logoutToken } = useContext(AuthContext);
 
@@ -30,14 +30,9 @@ export const DropDownMenu = ({ openModal }) => {
             </Link>
           )}
 
-          <li
-            onClick={() => {
-              setClicked(false);
-              openModal();
-            }}
-          >
-            Pruébalo
-          </li>
+          <Link to="/calc">
+            <li onClick={() => setClicked(false)}>Pruébalo</li>
+          </Link>
         </ul>
       </nav>
     </div>

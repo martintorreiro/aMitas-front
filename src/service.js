@@ -33,7 +33,6 @@ export const loginService = async (email, password) => {
 };
 
 export const validateService = async (email, registrationCode) => {
-  console.log(email,registrationCode)
   const response = await fetch(`http://localhost:3100/validate`, {
     method: "POST",
     headers: {
@@ -43,11 +42,10 @@ export const validateService = async (email, registrationCode) => {
   });
 
   const json = await response.json();
-  console.log("json",json);
+
   if (!response.ok) {
     throw new Error(json.message);
   }
 
-  
   return json;
 };

@@ -4,13 +4,13 @@ import { useCalcFunctions } from "../hooks/useCalcFunctions";
 import { Concepts } from "./contepts";
 import { ResultCalc } from "./result-calc";
 
-export const Calc = () => {
+export const Calc = ({ data }) => {
   const { users, gastoTotal, resultado, añadirGasto, añadirUsuario } =
-    useCalcFunctions();
+    useCalcFunctions(data);
 
   return (
     <>
-      <Concepts users={users} gastoTotal={gastoTotal}></Concepts>
+      <Concepts users={users}></Concepts>
 
       <AddExpense
         users={users.map((user) => user.nombre)}
@@ -22,7 +22,7 @@ export const Calc = () => {
         añadirUsuario={añadirUsuario}
       ></AddUser>
 
-      <ResultCalc resultado={resultado}></ResultCalc>
+      <ResultCalc resultado={resultado} gastoTotal={gastoTotal}></ResultCalc>
     </>
   );
 };

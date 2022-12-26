@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import usersJSON from "../users-example.json";
 
-export const useCalcFunctions = () => {
-  const [users, setUsers] = useState(usersJSON);
+export const useCalcFunctions = (data = usersJSON) => {
+  const [users, setUsers] = useState(data);
   const [gastoTotal, setGastoTotal] = useState(0);
   const [resultado, setResultado] = useState([]);
 

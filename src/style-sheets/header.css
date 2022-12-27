@@ -1,0 +1,46 @@
+.navigation-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 0px 15px black;
+  z-index: 10;
+  position: sticky;
+  top: 0px;
+}
+
+header a {
+  color: var(--primary-blue);
+}
+
+.inactive {
+  display: none;
+}
+
+.hamburguer > .fa-bars {
+  font-size: 20px;
+  color: var(--primary-blue);
+}
+
+.menu-list {
+  position: absolute;
+  right: 5px;
+
+  background-color: var(--primary-blue);
+}
+
+.menu-list a,
+.menu-list li {
+  color: white;
+}
+
+.menu-list li:hover {
+  cursor: pointer;
+}
+
+.menu-list li {
+  padding: 8px;
+  border: 0.5px solid black;
+}

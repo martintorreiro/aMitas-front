@@ -10,25 +10,31 @@ export const CreateCalc = () => {
   const [userList, setUserList] = useState([]);
 
   return (
-    <>
-      <p>Crear (Paso {step} de 2)</p>
+    <section className="calc-container">
+      {created.length < 1 ? (
+        <div className="steps">
+          <h4>Crear (Paso {step} de 2)</h4>
 
-      {step === 1 ? (
-        <Step1 setUserList={setUserList} setStep={setStep}></Step1>
-      ) : (
-        <></>
-      )}
-      {step === 2 ? (
-        <Step2
-          setStep={setStep}
-          setCreated={setCreated}
-          userList={userList}
-          setUserList={setUserList}
-        ></Step2>
+          {step === 1 ? (
+            <Step1 setUserList={setUserList} setStep={setStep}></Step1>
+          ) : (
+            <></>
+          )}
+          {step === 2 ? (
+            <Step2
+              setStep={setStep}
+              setCreated={setCreated}
+              userList={userList}
+              setUserList={setUserList}
+            ></Step2>
+          ) : (
+            <></>
+          )}
+        </div>
       ) : (
         <></>
       )}
       {created.length > 1 ? <Calc data={created}></Calc> : <></>}
-    </>
+    </section>
   );
 };

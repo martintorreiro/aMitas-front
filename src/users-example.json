@@ -1,4 +1,7 @@
-[
+{
+  "titulo": "Viaje a Madrid",
+  "fecha": "17/08/22",
+  "usuarios": [
     {
       "nombre": "Manuel",
       "conceptos": [{ "concepto": "Gasolina", "importe": 60 }]
@@ -19,3 +22,4 @@
       "conceptos": [{ "concepto": "Hotel", "importe": 230 }]
     }
   ]
+}

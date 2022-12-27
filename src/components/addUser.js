@@ -16,7 +16,6 @@ export const AddUser = ({ añadirUsuario }) => {
         <button onClick={openModal}>Añadir usuario</button>
         {isOpen ? (
           <div>
-            {" "}
             <button onClick={closeModal}>X</button>
             <form onSubmit={handlerSubmit}>
               <label>

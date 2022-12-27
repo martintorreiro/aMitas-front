@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export const DropDownMenu = () => {
   const [clicked, setClicked] = useState(false);
@@ -13,7 +15,7 @@ export const DropDownMenu = () => {
   return (
     <div>
       <div className="hamburguer" onClick={() => setClicked(!clicked)}>
-        <img src="/menu-hamburguesa.svg" alt="icon menu" height="40px"></img>
+        <FontAwesomeIcon icon={solid("bars")} />
       </div>
       <nav className={`menu-list ${clicked ? "active" : "inactive"}`}>
         <ul>

@@ -5,7 +5,6 @@ export const Step2 = ({ setUserList, userList, setCreated, setStep }) => {
   const [user, setUser] = useState("");
 
   const create = () => {
-    setStep(3);
     const calcSheet = userList.map((user) => {
       return { nombre: user, conceptos: [] };
     });
@@ -36,8 +35,10 @@ export const Step2 = ({ setUserList, userList, setCreated, setStep }) => {
         />
         <button>Añadir participante</button>
       </form>
-      <button onClick={() => setStep(1)}>Anterior</button>
-      <button onClick={create}>Crear</button>
+      <div className="controls">
+        <button onClick={() => setStep(1)}>Anterior</button>
+        <button onClick={create}>Crear</button>
+      </div>
     </>
   );
 };

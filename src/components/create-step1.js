@@ -43,14 +43,16 @@ export const Step1 = ({ setUserList, setStep }) => {
           />
         </label>
       </form>
-      <button
-        onClick={() => {
-          setUserList([`${name}(YO)`]);
-          setStep(2);
-        }}
-      >
-        Siguiente
-      </button>
+      <div className="controls">
+        <button
+          onClick={() => {
+            setUserList([`${name}(YO)`]);
+            setStep(2);
+          }}
+        >
+          Siguiente
+        </button>
+      </div>
     </>
   );
 };

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import usersJSON from "../users-example.json";
 
-export const useCalcFunctions = (data = usersJSON.usuarios) => {
-  const [users, setUsers] = useState(data);
+export const useCalcFunctions = (data = usersJSON) => {
+  const [users, setUsers] = useState(data.usuarios);
   const [gastoTotal, setGastoTotal] = useState(0);
   const [resultado, setResultado] = useState([]);
+  const [title, setTitle] = useState(data.titulo);
 
   useEffect(() => {
     const importeUsuarios = users.map((user) => {
@@ -56,5 +57,5 @@ export const useCalcFunctions = (data = usersJSON.usuarios) => {
     setUsers([...users, newUser]);
   };
 
-  return { users, gastoTotal, resultado, añadirGasto, añadirUsuario };
+  return { title, users, gastoTotal, resultado, añadirGasto, añadirUsuario };
 };

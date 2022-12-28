@@ -1,10 +1,11 @@
 import { v4 } from "uuid";
 
 export const Concepts = ({ users }) => {
+  console.log("--->", users);
   return (
     <ul>
       {users.map((user) => {
-        return user.conceptos.map((concepto) => {
+        const conceptos = user.conceptos.map((concepto) => {
           return (
             <li key={v4()}>
               <div>
@@ -15,6 +16,8 @@ export const Concepts = ({ users }) => {
             </li>
           );
         });
+
+        return conceptos;
       })}
     </ul>
   );

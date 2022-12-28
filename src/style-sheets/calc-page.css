@@ -66,6 +66,10 @@
   align-items: center;
 }
 
+.calc-container form label:last-child {
+  align-items: flex-start;
+}
+
 .calc-container form input {
   height: 30px;
   width: 60%;

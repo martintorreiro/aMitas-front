@@ -1,6 +1,10 @@
 {
   "titulo": "Viaje a Madrid",
   "fecha": "17/08/22",
+  "descripcion": "Calculo de gastos compartidos del viaje a Madrid",
+  "moneda": "EUR",
+  "creador": "Manuel",
+
   "usuarios": [
     {
       "nombre": "Manuel",

@@ -1,14 +1,29 @@
 import { useState } from "react";
 
-export const Step1 = ({ setUserList, setStep }) => {
-  const [title, setTitle] = useState("");
-  const [name, setName] = useState("");
-  const [badge, setBadge] = useState("");
-  const [description, setDescription] = useState("");
+export const Step1 = ({ setDataSheet, dataSheet, setStep }) => {
+  const [title, setTitle] = useState(dataSheet.titulo);
+  const [name, setName] = useState(dataSheet.creador);
+  const [badge, setBadge] = useState(dataSheet.moneda);
+  const [description, setDescription] = useState(dataSheet.descripcion);
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    setStep(2);
+
+    setDataSheet({
+      titulo: title,
+      descripcion: description,
+      moneda: badge,
+      creador: name,
+    });
+  };
   return (
     <>
       <p>Escoga un titulo, usuario y descripcion</p>
-      <form style={{ display: "flex", flexDirection: "column" }}>
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={handlesubmit}
+      >
         <label>
           Titulo:
           <input
@@ -18,6 +33,7 @@ export const Step1 = ({ setUserList, setStep }) => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
+
         <label>
           Su nombre:
           <input
@@ -31,7 +47,7 @@ export const Step1 = ({ setUserList, setStep }) => {
           Moneda:
           <input
             type="text"
-            value="EUR"
+            value={badge}
             onChange={(e) => setBadge(e.target.value)}
           />
         </label>
@@ -42,17 +58,10 @@ export const Step1 = ({ setUserList, setStep }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
+        <div className="controls">
+          <button>Siguiente</button>
+        </div>
       </form>
-      <div className="controls">
-        <button
-          onClick={() => {
-            setUserList([`${name}(YO)`]);
-            setStep(2);
-          }}
-        >
-          Siguiente
-        </button>
-      </div>
     </>
   );
 };

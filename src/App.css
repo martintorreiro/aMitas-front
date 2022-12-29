@@ -115,3 +115,7 @@ body {
   background-color: rgb(236, 55, 100);
   color: white;
 }
+
+.panel {
+  border: 1px solid black;
+}

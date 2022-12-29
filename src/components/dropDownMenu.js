@@ -32,7 +32,7 @@ export const DropDownMenu = () => {
             </Link>
           )}
 
-          <Link to="/calc">
+          <Link to="/probar">
             <li onClick={() => setClicked(false)}>Pruébalo</li>
           </Link>
         </ul>

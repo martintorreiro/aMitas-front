@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { Calc } from "../components/calc";
-import { CreateCalc } from "../components/create-calc";
-import "../style-sheets/calc-page.css";
 
-export const Cuentas = () => {
+import { CreateCalcSheet } from "../components/create-steps";
+import { ProbarEjemplo } from "../components/probar-ejemplo";
+
+export const Probar = () => {
   const [mode, setMode] = useState("test");
 
   return (
-    <section className="calc-page">
-      <h3>Pagina de Cuentas</h3>
-
+    <section className="test-page">
       <ul className="select-mode">
         <li
           className={mode === "test" ? "selection-box active" : "selection-box"}
@@ -26,8 +24,9 @@ export const Cuentas = () => {
           Crear pagina
         </li>
       </ul>
-      {mode === "create" ? <CreateCalc></CreateCalc> : <></>}
-      {mode === "test" ? <Calc></Calc> : <></>}
+
+      {mode === "create" && <CreateCalcSheet></CreateCalcSheet>}
+      {mode === "test" && <ProbarEjemplo></ProbarEjemplo>}
     </section>
   );
 };

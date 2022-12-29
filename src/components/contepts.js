@@ -1,7 +1,6 @@
 import { v4 } from "uuid";
 
 export const Concepts = ({ users }) => {
-  console.log("--->", users);
   return (
     <ul>
       {users.map((user) => {

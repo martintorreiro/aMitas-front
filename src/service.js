@@ -49,3 +49,37 @@ export const validateService = async (email, registrationCode) => {
 
   return json;
 };
+
+export const createDataSheetService = async (dataSheet) => {
+  const response = await fetch(`http://localhost:3100/newDataSheet`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ dataSheet }),
+  });
+
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  console.log(json);
+  return json;
+};
+
+export const getExampleService = async (dataSheet) => {
+  const response = await fetch(`http://localhost:3100/prueba`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json;
+};

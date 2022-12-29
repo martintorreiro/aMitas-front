@@ -7,10 +7,9 @@ import { ResultCalc } from "./result-calc";
 export const Calc = ({ data }) => {
   const { title, users, gastoTotal, resultado, añadirGasto, añadirUsuario } =
     useCalcFunctions(data);
-  console.log(users);
+
   return (
     <section>
-      <h3>{title}</h3>
       <Concepts users={users}></Concepts>
 
       <AddExpense

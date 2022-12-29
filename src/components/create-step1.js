@@ -8,7 +8,6 @@ export const Step1 = ({ setDataSheet, dataSheet, setStep }) => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    setStep(2);
 
     setDataSheet({
       titulo: title,
@@ -16,6 +15,8 @@ export const Step1 = ({ setDataSheet, dataSheet, setStep }) => {
       moneda: badge,
       creador: name,
     });
+
+    setStep(2);
   };
   return (
     <>

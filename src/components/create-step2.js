@@ -3,7 +3,7 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
 import { v4 } from "uuid";
 
-export const Step2 = ({ dataSheet, setDataSheet, setStep, setCalcSheet }) => {
+export const Step2 = ({ dataSheet, setDataSheet, setStep }) => {
   const [user, setUser] = useState("");
   const [userList, setUserList] = useState([dataSheet.creador]);
   const [userError, setUserError] = useState("");
@@ -25,8 +25,7 @@ export const Step2 = ({ dataSheet, setDataSheet, setStep, setCalcSheet }) => {
       return { nombre: user, conceptos: [] };
     });
 
-    console.log(dataSheet);
-    setCalcSheet(dataSheet);
+    setDataSheet(dataSheet);
   };
 
   return (

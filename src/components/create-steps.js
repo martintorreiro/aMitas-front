@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Step1 } from "./create-step1";
 import { Step2 } from "./create-step2";
 
-export const CreateCalcSheet = ({ setCalcSheet }) => {
+export const CreateCalcSheet = () => {
   const [step, setStep] = useState(1);
   const [dataSheet, setDataSheet] = useState({
     titulo: "",
@@ -11,10 +11,8 @@ export const CreateCalcSheet = ({ setCalcSheet }) => {
     moneda: "EUR",
   });
 
-  console.log(dataSheet);
-
   return (
-    <div className="steps">
+    <section className="steps panel">
       <h4>Crear (Paso {step} de 2)</h4>
 
       {step === 1 ? (
@@ -31,11 +29,10 @@ export const CreateCalcSheet = ({ setCalcSheet }) => {
           setStep={setStep}
           dataSheet={dataSheet}
           setDataSheet={setDataSheet}
-          setCalcSheet={setCalcSheet}
         ></Step2>
       ) : (
         <></>
       )}
-    </div>
+    </section>
   );
 };

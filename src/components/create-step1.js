@@ -14,6 +14,7 @@ export const Step1 = ({ setDataSheet, dataSheet, setStep }) => {
       descripcion: description,
       moneda: badge,
       creador: name,
+      usuarios: [{ nombre: name, conceptos: [] }],
     });
 
     setStep(2);

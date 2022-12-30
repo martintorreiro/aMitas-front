@@ -15,23 +15,19 @@ export const CreateCalcSheet = () => {
     <section className="steps panel">
       <h4>Crear (Paso {step} de 2)</h4>
 
-      {step === 1 ? (
+      {step === 1 && (
         <Step1
           setDataSheet={setDataSheet}
           dataSheet={dataSheet}
           setStep={setStep}
         ></Step1>
-      ) : (
-        <></>
       )}
-      {step === 2 ? (
+      {step === 2 && (
         <Step2
           setStep={setStep}
           dataSheet={dataSheet}
           setDataSheet={setDataSheet}
         ></Step2>
-      ) : (
-        <></>
       )}
     </section>
   );

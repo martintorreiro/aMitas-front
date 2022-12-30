@@ -64,12 +64,11 @@ export const createDataSheetService = async (dataSheet) => {
     throw new Error(json.message);
   }
 
-  console.log(json);
   return json;
 };
 
-export const getExampleService = async (dataSheet) => {
-  const response = await fetch(`http://localhost:3100/prueba`, {
+export const getDataSheetService = async (dataSheet) => {
+  const response = await fetch(`http://localhost:3100/getDS/${dataSheet}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -77,6 +76,7 @@ export const getExampleService = async (dataSheet) => {
   });
 
   const json = await response.json();
+
   if (!response.ok) {
     throw new Error(json.message);
   }

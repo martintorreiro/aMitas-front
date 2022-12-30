@@ -2,17 +2,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
 import { v4 } from "uuid";
+import { createDataSheetService } from "../service";
 
 export const Step2 = ({ dataSheet, setDataSheet, setStep }) => {
   const [user, setUser] = useState("");
   const [userList, setUserList] = useState([dataSheet.creador]);
   const [userError, setUserError] = useState("");
+  const [connectionError, setConnectionError] = useState("");
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    const findUser = userList.find((element) => element === user);
+
+    const findUser = dataSheet.usuarios.find(
+      (element) => element.nombre === user
+    );
+
     if (findUser === undefined) {
       e.target.elements.user.value = "";
+      dataSheet.usuarios = [
+        ...dataSheet.usuarios,
+        { nombre: user, conceptos: [] },
+      ];
+      setDataSheet(dataSheet);
       setUserList([...userList, user]);
       setUserError("");
     } else {
@@ -20,12 +31,13 @@ export const Step2 = ({ dataSheet, setDataSheet, setStep }) => {
     }
   };
 
-  const createDataSheet = () => {
-    dataSheet.usuarios = userList.map((user) => {
-      return { nombre: user, conceptos: [] };
-    });
-
-    setDataSheet(dataSheet);
+  const createDataSheet = async () => {
+    try {
+      const resp = await createDataSheetService(dataSheet);
+      console.log(resp);
+    } catch (error) {
+      setConnectionError(error.message);
+    }
   };
 
   return (
@@ -43,13 +55,11 @@ export const Step2 = ({ dataSheet, setDataSheet, setStep }) => {
           onChange={(e) => setUser(e.target.value)}
         />
         <button>Añadir participante</button>
-        {userError ? (
+        {userError && (
           <div>
             <FontAwesomeIcon icon={solid("triangle-exclamation")} />{" "}
             <p>{userError}</p>{" "}
           </div>
-        ) : (
-          <></>
         )}
       </form>
       <div className="controls">

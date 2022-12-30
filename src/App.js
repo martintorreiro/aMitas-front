@@ -3,9 +3,10 @@ import { Login } from "./pages/login";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { Home } from "./pages/home";
 import { MainHeader } from "./components/main-header";
-import { Probar } from "./pages/probar";
+import { WorkSheet } from "./pages/work-sheet";
 import { Register } from "./pages/register";
 import { Validate } from "./pages/validation";
+import { CreateSheet } from "./pages/create-sheet";
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/validate" element={<Validate />}></Route>
-          <Route path="/probar" element={<Probar />}></Route>
-          <Route path="/crear" element={<Probar />}></Route>
+          <Route
+            path="/hoja-de-calculo/:datasheet"
+            element={<WorkSheet />}
+          ></Route>
+          <Route path="/crear-hoja" element={<CreateSheet />}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 export const SeleccionarUsuario = ({ dataSheet, setUser }) => {
   return (
     <div>
@@ -5,7 +7,9 @@ export const SeleccionarUsuario = ({ dataSheet, setUser }) => {
       <ul>
         {dataSheet.usuarios.map((element) => {
           return (
-            <li onClick={(e) => setUser(element.nombre)}>{element.nombre}</li>
+            <li key={v4()} onClick={(e) => setUser(element.nombre)}>
+              {element.nombre}
+            </li>
           );
         })}
       </ul>

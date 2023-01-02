@@ -1,34 +1,109 @@
 import { useState } from "react";
-import { Step1 } from "./create-step1";
-import { Step2 } from "./create-step2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { v4 } from "uuid";
+
+const newUserInput = document.getElementById("newUserInput");
 
 export const CreateCalcSheet = () => {
-  const [step, setStep] = useState(1);
-  const [dataSheet, setDataSheet] = useState({
-    titulo: "",
-    descipcion: "",
-    creador: "",
-    moneda: "EUR",
-  });
+  const [title, setTitle] = useState("");
+  const [badge, setBadge] = useState("EUR");
+  const [description, setDescription] = useState();
+  const [newUser, setNewUser] = useState("");
+  const [userList, setUserList] = useState([]);
+  const [userError, setUserError] = useState("");
+  const [connectionError, setConnectionError] = useState("");
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+
+    const dataSheet = {};
+  };
+
+  const deleteUser = (e) => {
+    const updatedUserList = userList.filter(
+      (user) => user !== e.target.dataset.username
+    );
+    setUserList(updatedUserList);
+  };
+
+  const addUser = (e) => {
+    const findUser = userList.find((element) => element === newUser);
+
+    if (findUser === undefined) {
+      newUserInput.value = "";
+      setUserList([...userList, newUser]);
+
+      setUserError("");
+    } else {
+      setUserError(`Ya existe un usuario con ese nombre`);
+    }
+  };
 
   return (
-    <section className="steps panel">
-      <h4>Crear (Paso {step} de 2)</h4>
+    <section className="calc-form">
+      <form onSubmit={handlesubmit}>
+        <fieldset>
+          <label>
+            Titulo:
+            <input
+              required
+              type="text"
+              onChange={(e) => setTitle(e.target.value)}
+              spellCheck="false"
+            />
+          </label>
 
-      {step === 1 && (
-        <Step1
-          setDataSheet={setDataSheet}
-          dataSheet={dataSheet}
-          setStep={setStep}
-        ></Step1>
-      )}
-      {step === 2 && (
-        <Step2
-          setStep={setStep}
-          dataSheet={dataSheet}
-          setDataSheet={setDataSheet}
-        ></Step2>
-      )}
+          <label>
+            Moneda:
+            <input
+              type="text"
+              value={badge}
+              spellCheck="false"
+              onChange={(e) => setBadge(e.target.value)}
+            />
+          </label>
+          <label>
+            Descripcion:
+            <textarea
+              spellCheck="false"
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <ul className="user-list">
+            {userList.map((user) => (
+              <li key={v4()}>
+                <p>{user}</p>{" "}
+                <button data-username={user} type="button" onClick={deleteUser}>
+                  x
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className="add-user">
+            <input
+              id="newUserInput"
+              name="new-user"
+              placeholder="Nombre"
+              onChange={(e) => setNewUser(e.target.value)}
+            />
+            <button type="button" onClick={addUser} className="bg-blue">
+              AÑADIR
+            </button>
+          </div>
+          {userError && (
+            <div>
+              <FontAwesomeIcon icon={solid("triangle-exclamation")} />{" "}
+              <p>{userError}</p>
+            </div>
+          )}
+        </fieldset>
+
+        <button>crear</button>
+      </form>
     </section>
   );
 };

@@ -1,5 +1,10 @@
 import { CreateCalcSheet } from "../components/create-steps";
+import "../style-sheets/create-calc-sheet.css";
 
 export const CreateSheet = () => {
-  return <CreateCalcSheet></CreateCalcSheet>;
+  return (
+    <section>
+      <CreateCalcSheet></CreateCalcSheet>
+    </section>
+  );
 };

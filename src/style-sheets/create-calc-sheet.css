@@ -1,0 +1,76 @@
+.calc-form > h4 {
+  font-size: 22px;
+  padding-bottom: 10px;
+}
+
+.calc-form > p {
+  padding: 10px 0;
+}
+
+.calc-form fieldset {
+  padding: 10px 5px;
+}
+
+.calc-form > form.add-user-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.calc-form > form.add-user-form button {
+  padding: 0 5px;
+  height: 30px;
+  margin-top: 6px;
+}
+.calc-form > form input,
+.calc-form > form textarea {
+  height: 30px;
+  width: 100%;
+  border: 1px solid grey;
+  margin-bottom: 15px;
+}
+
+.calc-form > form textarea {
+  height: 90px;
+  resize: none;
+}
+
+.calc-form > form input:focus,
+.calc-form > form textarea:focus {
+  outline: 1.5px solid blue;
+}
+
+.calc-form .controls button {
+  font-size: 16px;
+  padding: 8px;
+}
+.calc-form button:hover {
+  cursor: pointer;
+}
+
+.calc-form .add-user {
+  display: flex;
+  margin-top: 15px;
+}
+
+.calc-form .add-user button {
+  padding: 0 8px;
+  margin-left: 5px;
+  height: 30px;
+  border: none;
+  border-radius: 2px;
+}
+
+.calc-form .user-list > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 8px;
+}
+
+.calc-form .user-list > li button {
+  font-size: 20px;
+  padding: 5px;
+  border: none;
+}

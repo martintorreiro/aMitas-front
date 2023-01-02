@@ -61,6 +61,15 @@ body {
   margin-left: 20px;
 }
 
+#root > section {
+  padding: 20px 0;
+}
+
+.bg-blue {
+  background-color: var(--primary-blue);
+  color: var(--secundary-white);
+}
+
 /* -----------------LOGIN ----------------------------*/
 
 .register {

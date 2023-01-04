@@ -6,7 +6,7 @@ import { MainHeader } from "./components/main-header";
 import { WorkSheet } from "./pages/work-sheet";
 import { Register } from "./pages/register";
 import { Validate } from "./pages/validation";
-import { CreateSheet } from "./pages/create-sheet";
+import { CreateSheetPage } from "./pages/create-sheet-page";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             path="/hoja-de-calculo/:datasheet"
             element={<WorkSheet />}
           ></Route>
-          <Route path="/crear-hoja" element={<CreateSheet />}></Route>
+          <Route path="/crear-hoja" element={<CreateSheetPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>

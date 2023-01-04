@@ -1,14 +1,20 @@
-.calc-form > h4 {
+:root {
+  --primary-blue: rgb(71, 137, 195);
+
+  --secundary-white: whitesmoke;
+}
+
+.calc-form {
+  padding: 10px;
+}
+
+.calc-form > h2 {
   font-size: 22px;
-  padding-bottom: 10px;
+  padding: 20px 0;
 }
 
 .calc-form > p {
   padding: 10px 0;
-}
-
-.calc-form fieldset {
-  padding: 10px 5px;
 }
 
 .calc-form > form.add-user-form {
@@ -23,12 +29,24 @@
   height: 30px;
   margin-top: 6px;
 }
+
+.calc-form > form label {
+  font-weight: bold;
+  color: rgb(102, 102, 102);
+}
+.calc-form > form label input,
+.calc-form > form label textarea {
+  margin-top: 10px;
+}
 .calc-form > form input,
 .calc-form > form textarea {
   height: 30px;
   width: 100%;
-  border: 1px solid grey;
+  padding: 0 5px;
+  border: none;
+  background-color: rgb(223, 223, 223);
   margin-bottom: 15px;
+  border-radius: 2px;
 }
 
 .calc-form > form textarea {
@@ -38,7 +56,8 @@
 
 .calc-form > form input:focus,
 .calc-form > form textarea:focus {
-  outline: 1.5px solid blue;
+  outline: none;
+  border: 1px solid var(--primary-blue);
 }
 
 .calc-form .controls button {
@@ -73,4 +92,11 @@
   font-size: 20px;
   padding: 5px;
   border: none;
+}
+
+.calc-form form > button {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 2px;
 }

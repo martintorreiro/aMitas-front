@@ -1,10 +1,10 @@
 export const Cabecera = ({ dataSheet }) => {
   return (
     <div className="panel-header">
-      <h3>{dataSheet.titulo}</h3>
-      <p>{dataSheet.descripcion}</p>
+      <h3>{dataSheet.title}</h3>
+      <p>{dataSheet.description}</p>
       <p>
-        Creador por {dataSheet.creador}, el {dataSheet.fecha}
+        Creador por {dataSheet.creator}, el {dataSheet.dateCreation}
       </p>
     </div>
   );

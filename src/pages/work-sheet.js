@@ -23,7 +23,7 @@ export const WorkSheet = () => {
   return (
     <>
       {error && (
-        <p>Se a producido un error al cargar la hoja de calculos de prueba</p>
+        <p>Se a producido un error al cargar la hoja de calculos</p>
       )}
 
       {workSheet && <CargarHoja dataSheet={workSheet}></CargarHoja>}

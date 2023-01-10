@@ -13,30 +13,39 @@ export const DropDownMenu = () => {
     setClicked(false);
   };
   return (
-    <div>
+    <>
       <div className="hamburguer" onClick={() => setClicked(!clicked)}>
         <FontAwesomeIcon icon={solid("bars")} />
       </div>
       <nav className={`menu-list ${clicked ? "active" : "inactive"}`}>
         <ul>
-          <Link to="/">
-            <li onClick={() => setClicked(false)}>Inicio</li>
-          </Link>
+          <li onClick={() => setClicked(false)}>
+            <Link to="/">Inicio </Link>
+          </li>
+
+          <li onClick={() => setClicked(false)}>
+            <Link to="/hoja-de-calculo/example">Pruébalo</Link>
+          </li>
+
+          <li onClick={() => setClicked(false)}>
+            <Link to="/crear-hoja">Crear Prueba</Link>
+          </li>
+
           {user ? (
-            <Link to="/">
-              <li onClick={logout}>Logout</li>
-            </Link>
+            <li onClick={logout}>
+              <Link to="/">Logout </Link>
+            </li>
           ) : (
-            <Link to="/login">
-              <li onClick={() => setClicked(false)}>Login/Register</li>
-            </Link>
+            <li onClick={() => setClicked(false)}>
+              <Link to="/login">Iniciar Sesion</Link>
+            </li>
           )}
 
-          <Link to="/hoja-de-calculo/example">
-            <li onClick={() => setClicked(false)}>Pruébalo</li>
-          </Link>
+          <li onClick={() => setClicked(false)}>
+            <Link to="/Register">Registrarse</Link>
+          </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 };

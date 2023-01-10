@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CargarHoja } from "../components/cargar-hoja/cargar-hoja";
 import { getDataSheetService } from "../service";
+import "../style-sheets/work-sheet.css";
 
 export const WorkSheet = () => {
   const { datasheet } = useParams();
@@ -22,9 +23,7 @@ export const WorkSheet = () => {
 
   return (
     <>
-      {error && (
-        <p>Se a producido un error al cargar la hoja de calculos</p>
-      )}
+      {error && <p>Se a producido un error al cargar la hoja de calculos</p>}
 
       {workSheet && <CargarHoja dataSheet={workSheet}></CargarHoja>}
     </>

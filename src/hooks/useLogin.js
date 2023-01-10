@@ -17,11 +17,11 @@ export const useLogin = () => {
     setError("");
     setLoading("Loading");
     try {
-      const loginResponse = await loginService(email, password);    
+      const loginResponse = await loginService(email, password);
 
       loginToken(loginResponse.message.token, email);
 
-      navigate("/work-page");
+      navigate("/");
     } catch (error) {
       setLoading("");
       setError(error.message);

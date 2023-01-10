@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useModal } from "../hooks/useModal";
+import { addUserService } from "../service";
 
 export const AddUser = ({ añadirUsuario }) => {
   const { isOpen, openModal, closeModal } = useModal();
   const [name, setName] = useState("");
 
-  const handlerSubmit = (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
     añadirUsuario(name);
+
     closeModal();
   };
   return (

@@ -1,7 +1,24 @@
 :root {
-  --primary-blue: rgb(71, 137, 195);
+  --primary-blue: #1f98d9;
+  --secondary-blue: #154f94;
 
   --secundary-white: whitesmoke;
+}
+
+.color1 {
+  color: #122243;
+}
+.color2 {
+  color: #154f94;
+}
+.color3 {
+  color: #1f98d9;
+}
+.color4 {
+  color: #20dad8;
+}
+.color5 {
+  color: #73e6e4;
 }
 
 * {
@@ -62,7 +79,8 @@ body {
 }
 
 #root > section {
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .bg-blue {

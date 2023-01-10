@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { addUserService } from "../service";
 
 export const useCalcFunctions = (data) => {
   const [users, setUsers] = useState(data.usuarios);
@@ -47,11 +48,15 @@ export const useCalcFunctions = (data) => {
     setUsers([...arrayUsers]);
   };
 
-  const añadirUsuario = (userName) => {
+  const añadirUsuario = async (userName) => {
     const newUser = {
       nombre: userName,
       conceptos: [],
     };
+
+    try {
+      const existUser = await addUserService(userName, data.id);
+    } catch (error) {}
 
     setUsers([...users, newUser]);
   };

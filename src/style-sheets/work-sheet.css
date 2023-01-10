@@ -1,0 +1,12 @@
+.panel {
+  padding: 20px;
+}
+
+.panel .panel-header {
+  color: var(--secondary-blue);
+  margin-bottom: 20px;
+}
+
+.panel-header h3 {
+  padding: 16px 0;
+}

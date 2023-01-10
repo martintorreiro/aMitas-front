@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { v4 } from "uuid";
 import { createDataSheetService } from "../service";
+import { useNavigate } from "react-router-dom";
 
 export const CreateCalcSheet = () => {
   const [title, setTitle] = useState("");
@@ -13,7 +14,9 @@ export const CreateCalcSheet = () => {
   const [userError, setUserError] = useState("");
   const [connectionError, setConnectionError] = useState("");
 
-  const handlesubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handlesubmit = async (e) => {
     e.preventDefault();
 
     const dataSheet = {
@@ -26,7 +29,9 @@ export const CreateCalcSheet = () => {
     };
     console.log(dataSheet);
 
-    const url = createDataSheetService(dataSheet);
+    const url = await createDataSheetService(dataSheet);
+    console.log(url);
+    navigate(`/hoja-de-calculo/${url}`);
   };
 
   const deleteUser = (e) => {

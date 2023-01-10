@@ -64,7 +64,7 @@ export const createDataSheetService = async (dataSheet) => {
     throw new Error(json.message);
   }
 
-  return json;
+  return json.urlCode;
 };
 
 export const getDataSheetService = async (dataSheet) => {
@@ -73,6 +73,24 @@ export const getDataSheetService = async (dataSheet) => {
     headers: {
       "Content-Type": "application/json",
     },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json;
+};
+
+export const addUserService = async (user, dataId) => {
+  const response = await fetch(`http://localhost:3100/addUser`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user, dataId }),
   });
 
   const json = await response.json();

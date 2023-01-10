@@ -9,11 +9,13 @@ export const MainHeader = () => {
 
   return (
     <header className="navigation-menu">
-      <Link to="/">
-        <h1>AMitas</h1>
-      </Link>
-      {user ? <span>{user}</span> : null}
-      <DropDownMenu></DropDownMenu>
+      <div>
+        <Link to="/">
+          <h1>AMitas</h1>
+        </Link>
+        {user ? <span>{user}</span> : null}
+        <DropDownMenu></DropDownMenu>
+      </div>
     </header>
   );
 };

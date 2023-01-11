@@ -9,7 +9,7 @@ export const Calc = ({ data }) => {
     useCalcFunctions(data);
 
   return (
-    <section>
+    <section className="calc">
       <Concepts users={users}></Concepts>
 
       <AddExpense

@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 
 export const SeleccionarUsuario = ({ dataSheet, setUser }) => {
   return (
-    <div>
+    <div className="select-user">
       <h4>Quien eres?</h4>
       <ul>
         {dataSheet.usuarios.map((element) => {

@@ -1,7 +1,8 @@
 :root {
   --primary-blue: #1f98d9;
   --secondary-blue: #154f94;
-
+  --primary-grey: #444444;
+  --secondary-grey: #d9dcdf;
   --secundary-white: whitesmoke;
 }
 
@@ -76,11 +77,6 @@ body {
 .home-page > section:nth-child(2n) li {
   list-style-type: "\1F44D";
   margin-left: 20px;
-}
-
-#root > section {
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .bg-blue {

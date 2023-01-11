@@ -1,12 +1,58 @@
 .panel {
-  padding: 20px;
+  background-color: var(--secondary-grey);
 }
 
 .panel .panel-header {
-  color: var(--secondary-blue);
-  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  background-image: url("../images/fondo-title.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .panel-header h3 {
   padding: 16px 0;
+}
+
+.panel-title {
+  padding: 20px;
+}
+
+.panel-content {
+  background-color: white;
+  padding: 20px 0;
+  color: var(--secondary-blue);
+}
+
+.concepts-list > li {
+  padding: 10px;
+  border-bottom: 3px solid var(--secondary-grey);
+  display: flex;
+  justify-content: space-between;
+}
+
+.concepts-list > li p {
+  margin-top: 8px;
+  color: var(--primary-grey);
+}
+
+.select-panel {
+  display: flex;
+}
+
+.select-panel li {
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-panel li.active {
+  border-bottom: 2px solid orange;
+}
+
+.select-panel li svg {
+  font-size: 25px;
+  margin-bottom: 10px;
 }

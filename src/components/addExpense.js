@@ -11,11 +11,8 @@ export const AddExpense = ({ users, addExpense }) => {
       date: e.target.elements.date.value,
       amount: Number(e.target.elements.cuantia.value),
     };
-    e.target.elements.concepto.value = "";
-    e.target.elements.select.value = "";
-    e.target.elements.date.value = "";
-    e.target.elements.cuantia.value = 0;
-    addExpense(formInputs);
+
+    await addExpense();
     closeModal();
   };
 

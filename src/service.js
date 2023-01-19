@@ -77,7 +77,7 @@ export const getDataSheetService = async (dataSheet) => {
 
   const json = await response.json();
 
-  console.log(json)
+  console.log(json);
 
   if (!response.ok) {
     throw new Error(json.message);
@@ -93,6 +93,24 @@ export const addUserService = async (user, dataId) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ user, dataId }),
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json;
+};
+
+export const addExpenseService = async (dataId, concept, amount) => {
+  const response = await fetch(`http://localhost:3100/addExpense`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ dataId, concept, amount }),
   });
 
   const json = await response.json();

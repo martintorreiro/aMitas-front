@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { addUserService } from "../service";
+import { addExpenseService, addUserService } from "../service";
 
 export const useCalcFunctions = (data) => {
   const [users, setUsers] = useState(data.users);
   const [totalCost, setTotalCost] = useState(0);
   const [result, setResult] = useState([]);
   const [title, setTitle] = useState(data.title);
+  const [addUserError, setAddUserError] = useState("");
 
-  console.log(users)
+  console.log("users", users);
 
   useEffect(() => {
     const usersAmount = users.map((user) => {
@@ -36,8 +37,10 @@ export const useCalcFunctions = (data) => {
     setResult(calcResult);
   }, [users]);
 
-  const addExpense = (formInputs) => {
-    const arrayUsers = [...users];
+  const addExpense = async (dataId, concept, amount) => {
+    await addExpenseService(dataId, concept, amount);
+
+    /*    const arrayUsers = [...users];
     const userIndex = arrayUsers.findIndex(
       (user) => user.name === formInputs.user
     );
@@ -47,7 +50,7 @@ export const useCalcFunctions = (data) => {
       amount: formInputs.amount,
     });
 
-    setUsers([...arrayUsers]);
+    setUsers([...arrayUsers]); */
   };
 
   const addUser = async (userName) => {
@@ -57,11 +60,15 @@ export const useCalcFunctions = (data) => {
     };
 
     try {
-      const existUser = await addUserService(userName, data.id);
-    } catch (error) {}
-
-    setUsers([...users, newUser]);
+      await addUserService(userName, data.id);
+      setUsers([...users, newUser]);
+      return true;
+    } catch (error) {
+      console.log("error", error.message);
+      setAddUserError(error.message);
+      return false;
+    }
   };
 
-  return { title, users, totalCost, result, addUser, addExpense };
+  return { title, users, totalCost, result, addUser, addExpense, addUserError };
 };

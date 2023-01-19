@@ -2,15 +2,16 @@ import { useState } from "react";
 import { useModal } from "../hooks/useModal";
 import { addUserService } from "../service";
 
-export const AddUser = ({ addUser }) => {
+export const AddUser = ({ addUser, addUserError }) => {
   const { isOpen, openModal, closeModal } = useModal();
   const [name, setName] = useState("");
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
-    addUser(name);
-
-    closeModal();
+    const saved = await addUser(name);
+    if (saved) {
+      closeModal();
+    }
   };
   return (
     <>
@@ -32,6 +33,7 @@ export const AddUser = ({ addUser }) => {
 
               <button>Añadir</button>
             </form>
+            {addUserError && <p>{addUserError}</p>}
           </div>
         ) : (
           <></>

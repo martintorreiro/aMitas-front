@@ -8,7 +8,7 @@ export const ResultCalc = ({ resultado, gastoTotal }) => {
         {resultado.map((user) => {
           return (
             <li key={v4()}>
-              Usuario: {user.usuario} Resultado: {user.resultado}
+              Usuario: {user.name} Resultado: {user.result}
             </li>
           );
         })}

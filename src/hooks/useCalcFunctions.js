@@ -2,56 +2,58 @@ import { useEffect, useState } from "react";
 import { addUserService } from "../service";
 
 export const useCalcFunctions = (data) => {
-  const [users, setUsers] = useState(data.usuarios);
-  const [gastoTotal, setGastoTotal] = useState(0);
-  const [resultado, setResultado] = useState([]);
-  const [title, setTitle] = useState(data.titulo);
+  const [users, setUsers] = useState(data.users);
+  const [totalCost, setTotalCost] = useState(0);
+  const [result, setResult] = useState([]);
+  const [title, setTitle] = useState(data.title);
+
+  console.log(users)
 
   useEffect(() => {
-    const importeUsuarios = users.map((user) => {
+    const usersAmount = users.map((user) => {
       return {
-        nombre: user.nombre,
-        importe: user.conceptos.reduce((a, b) => {
-          if (user.conceptos.length === 0) {
+        name: user.name,
+        amount: user.concepts.reduce((a, b) => {
+          if (user.concepts.length === 0) {
             return 0;
           }
-          return a + b.importe;
+          return a + b.amount;
         }, 0),
       };
     });
 
-    const gasto = importeUsuarios.reduce((a, b) => a + b.importe, 0);
-    setGastoTotal(gasto);
+    const total = usersAmount.reduce((a, b) => a + b.amount, 0);
+    setTotalCost(total);
 
-    const gastoMedio = Math.round((gasto / users.length) * 100) / 100;
+    const avgExpense = Math.round((total / users.length) * 100) / 100;
 
-    const resultadoCuentas = importeUsuarios.map((user) => {
+    const calcResult = usersAmount.map((user) => {
       return {
-        usuario: user.nombre,
-        resultado: user.importe - gastoMedio,
+        name: user.name,
+        result: user.amount - avgExpense,
       };
     });
-    setResultado(resultadoCuentas);
+    setResult(calcResult);
   }, [users]);
 
-  const añadirGasto = (formInputs) => {
+  const addExpense = (formInputs) => {
     const arrayUsers = [...users];
     const userIndex = arrayUsers.findIndex(
-      (user) => user.nombre === formInputs.user
+      (user) => user.name === formInputs.user
     );
 
-    arrayUsers[userIndex].conceptos.push({
-      concepto: formInputs.concepto,
-      importe: formInputs.cuantia,
+    arrayUsers[userIndex].concepts.push({
+      concept: formInputs.concept,
+      amount: formInputs.amount,
     });
 
     setUsers([...arrayUsers]);
   };
 
-  const añadirUsuario = async (userName) => {
+  const addUser = async (userName) => {
     const newUser = {
-      nombre: userName,
-      conceptos: [],
+      name: userName,
+      concepts: [],
     };
 
     try {
@@ -61,5 +63,5 @@ export const useCalcFunctions = (data) => {
     setUsers([...users, newUser]);
   };
 
-  return { title, users, gastoTotal, resultado, añadirGasto, añadirUsuario };
+  return { title, users, totalCost, result, addUser, addExpense };
 };

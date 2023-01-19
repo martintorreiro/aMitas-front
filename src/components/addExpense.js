@@ -1,21 +1,21 @@
 import { v4 } from "uuid";
 import { useModal } from "../hooks/useModal";
 
-export const AddExpense = ({ users, añadirGasto }) => {
+export const AddExpense = ({ users, addExpense }) => {
   const { isOpen, openModal, closeModal } = useModal();
   const handlerForm = async (e) => {
     e.preventDefault();
     const formInputs = {
-      concepto: e.target.elements.concepto.value,
+      concept: e.target.elements.concepto.value,
       user: e.target.elements.select.value,
       date: e.target.elements.date.value,
-      cuantia: Number(e.target.elements.cuantia.value),
+      amount: Number(e.target.elements.cuantia.value),
     };
     e.target.elements.concepto.value = "";
     e.target.elements.select.value = "";
     e.target.elements.date.value = "";
     e.target.elements.cuantia.value = 0;
-    añadirGasto(formInputs);
+    addExpense(formInputs);
     closeModal();
   };
 

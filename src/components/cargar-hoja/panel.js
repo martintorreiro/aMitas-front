@@ -9,7 +9,7 @@ import { Cabecera } from "./header";
 
 export const Panel = ({ dataSheet }) => {
   const [balances, setBalances] = useState(false);
-  const { title, users, gastoTotal, resultado, añadirGasto, añadirUsuario } =
+  const { title, users, totalCost, result, addExpense, addUser } =
     useCalcFunctions(dataSheet);
 
   return (
@@ -22,21 +22,20 @@ export const Panel = ({ dataSheet }) => {
       <div className="panel-content">
         {balances ? (
           <ResultCalc
-            resultado={resultado}
-            gastoTotal={gastoTotal}
+            resultado={result}
+            gastoTotal={totalCost}
           ></ResultCalc>
         ) : (
           <div>
             <Concepts users={users}></Concepts>
 
             <AddExpense
-              users={users.map((user) => user.nombre)}
-              añadirGasto={añadirGasto}
+              users={users.map((user) => user.name)}
+              addExpense={addExpense}
             ></AddExpense>
 
             <AddUser
-              users={users.map((user) => user.nombre)}
-              añadirUsuario={añadirUsuario}
+              addUser={addUser}
             ></AddUser>
           </div>
         )}

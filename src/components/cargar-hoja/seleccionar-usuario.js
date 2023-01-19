@@ -5,10 +5,10 @@ export const SeleccionarUsuario = ({ dataSheet, setUser }) => {
     <div className="select-user">
       <h4>Quien eres?</h4>
       <ul>
-        {dataSheet.usuarios.map((element) => {
+        {dataSheet.users.map((element) => {
           return (
-            <li key={v4()} onClick={(e) => setUser(element.nombre)}>
-              {element.nombre}
+            <li key={v4()} onClick={(e) => setUser(element.name)}>
+              {element.name}
             </li>
           );
         })}

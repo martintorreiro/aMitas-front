@@ -20,17 +20,14 @@ export const CreateCalcSheet = () => {
     e.preventDefault();
 
     const dataSheet = {
-      titulo: title,
-      descripcion: description,
-      moneda: badge,
-      usuarios: userList.map((user) => {
-        return { nombre: user, conceptos: [] };
+      title: title,
+      description: description,
+      badge: badge,
+      users: userList.map((user) => {
+        return { name: user, concepts: [] };
       }),
     };
-    console.log(dataSheet);
-
     const url = await createDataSheetService(dataSheet);
-    console.log(url);
     navigate(`/hoja-de-calculo/${url}`);
   };
 

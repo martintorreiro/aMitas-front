@@ -6,6 +6,7 @@ export const useCalcFunctions = (data) => {
   const [totalCost, setTotalCost] = useState(0);
   const [result, setResult] = useState([]);
   const [title, setTitle] = useState(data.title);
+  const [addExpenseError, setAddExpenseError] = useState("");
   const [addUserError, setAddUserError] = useState("");
 
   console.log("users", users);
@@ -38,19 +39,21 @@ export const useCalcFunctions = (data) => {
   }, [users]);
 
   const addExpense = async (dataId, concept, amount) => {
-    await addExpenseService(dataId, concept, amount);
 
-    /*    const arrayUsers = [...users];
-    const userIndex = arrayUsers.findIndex(
-      (user) => user.name === formInputs.user
-    );
 
-    arrayUsers[userIndex].concepts.push({
-      concept: formInputs.concept,
-      amount: formInputs.amount,
-    });
+    
+    try {
+      await addExpenseService(dataId, concept, amount)
+      setUsers([...users, newUser]);
+      return true;
+    } catch (error) {
+      
+      setAddExpenseError(error.message);
+      return false;
+    }
 
-    setUsers([...arrayUsers]); */
+
+   
   };
 
   const addUser = async (userName) => {
@@ -64,7 +67,7 @@ export const useCalcFunctions = (data) => {
       setUsers([...users, newUser]);
       return true;
     } catch (error) {
-      console.log("error", error.message);
+    
       setAddUserError(error.message);
       return false;
     }

@@ -79,6 +79,7 @@
   height: 30px;
   border: none;
   border-radius: 2px;
+
 }
 
 .calc-form .user-list > li {
@@ -92,7 +93,9 @@
   font-size: 20px;
   padding: 5px;
   border: none;
+  background-color: white;
 }
+
 
 .calc-form form > button {
   width: 100%;

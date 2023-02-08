@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRegister } from "../hooks/useRegister";
 
-export const Register = () => {
+export  const Register = () => {
   const {
     setUserName,
     setEmail,
@@ -70,3 +70,6 @@ export const Register = () => {
     </section>
   );
 };
+
+
+export default  Register;

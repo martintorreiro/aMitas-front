@@ -49,3 +49,5 @@ export const Validate = () => {
     </section>
   );
 };
+
+export default Validate;

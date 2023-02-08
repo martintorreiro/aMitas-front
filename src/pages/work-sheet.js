@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Panel } from "../components/cargar-hoja/panel";
+import { Panel } from "../components/load-sheet/panel";
 import { getDataSheetService } from "../service";
 import "../style-sheets/work-sheet.css";
 
@@ -29,3 +29,5 @@ export const WorkSheet = () => {
     </>
   );
 };
+
+export default WorkSheet;

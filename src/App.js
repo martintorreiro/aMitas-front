@@ -1,16 +1,21 @@
 import "./App.css";
-import { Login } from "./pages/login";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import { Home } from "./pages/home";
-import { MainHeader } from "./components/main-header";
-import { WorkSheet } from "./pages/work-sheet";
-import { Register } from "./pages/register";
-import { Validate } from "./pages/validation";
-import { CreateSheetPage } from "./pages/create-sheet-page";
+import { Suspense,lazy } from "react";
+import { MainHeader } from "./components/header/main-header";
+
+const  Validate = lazy(() => import ("./pages/validation"));
+const  Home = lazy(() => import ("./pages/home"));
+const  Login = lazy(() => import ("./pages/login"));
+const  WorkSheet = lazy(() => import ("./pages/work-sheet"));
+const  CreateSheetPage = lazy(() => import ("./pages/create-sheet-page"));
+const  Register = lazy(() => import ("./pages/register"));
+
+
 
 function App() {
   return (
     <>
+    <Suspense fallback={<span>Cargando</span>}>
       <BrowserRouter>
         <MainHeader />
         <Routes>
@@ -25,6 +30,7 @@ function App() {
           <Route path="/crear-hoja" element={<CreateSheetPage />}></Route>
         </Routes>
       </BrowserRouter>
+      </Suspense>
     </>
   );
 }

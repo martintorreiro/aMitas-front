@@ -1,4 +1,4 @@
-import travel from "../images/dinner.webp";
+import travel from "../images/dinner.webp"; 
 
 export const Home = () => {
   return (
@@ -39,3 +39,5 @@ export const Home = () => {
     </section>
   );
 };
+
+export default Home

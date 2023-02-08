@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 
 export const ResultCalc = ({ resultado, gastoTotal }) => {
   return (
-    <>
+    <div>
       <h4>Resultado cuentas</h4>
       <ul>
         {resultado.map((user) => {
@@ -14,6 +14,6 @@ export const ResultCalc = ({ resultado, gastoTotal }) => {
         })}
       </ul>
       <p>Total: {gastoTotal}</p>
-    </>
+    </div>
   );
 };

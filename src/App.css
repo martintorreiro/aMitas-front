@@ -6,6 +6,8 @@
   --secundary-white: whitesmoke;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
 .color1 {
   color: #122243;
 }
@@ -28,7 +30,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: "open sans", arial, sans-serif;
+  font-family: "Nunito","open sans", arial, sans-serif;
 }
 
 body {
@@ -40,6 +42,10 @@ body {
   display: grid;
   grid-template-rows: 67px auto;
   grid-template-columns: 100%;
+}
+
+button:hover{
+cursor: pointer;
 }
 
 .home-page {

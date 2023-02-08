@@ -1,5 +1,7 @@
+const server = process.env.REACT_APP_SERVER_URL
+
 export const registerService = async (userName, email, password) => {
-  const response = await fetch(`http://localhost:3100/register`, {
+  const response = await fetch(`${server}/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +17,7 @@ export const registerService = async (userName, email, password) => {
 };
 
 export const loginService = async (email, password) => {
-  const response = await fetch(`http://localhost:3100/login`, {
+  const response = await fetch(`${server}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +35,7 @@ export const loginService = async (email, password) => {
 };
 
 export const validateService = async (email, registrationCode) => {
-  const response = await fetch(`http://localhost:3100/validate`, {
+  const response = await fetch(`${server}/validate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +53,7 @@ export const validateService = async (email, registrationCode) => {
 };
 
 export const createDataSheetService = async (dataSheet) => {
-  const response = await fetch(`http://localhost:3100/newDataSheet`, {
+  const response = await fetch(`${server}/newDataSheet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +70,7 @@ export const createDataSheetService = async (dataSheet) => {
 };
 
 export const getDataSheetService = async (dataSheet) => {
-  const response = await fetch(`http://localhost:3100/getDS/${dataSheet}`, {
+  const response = await fetch(`${server}/getDS/${dataSheet}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -87,7 +89,7 @@ export const getDataSheetService = async (dataSheet) => {
 };
 
 export const addUserService = async (user, dataId) => {
-  const response = await fetch(`http://localhost:3100/addUser`, {
+  const response = await fetch(`${server}/addUser`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -105,7 +107,7 @@ export const addUserService = async (user, dataId) => {
 };
 
 export const addExpenseService = async (dataId, concept, amount) => {
-  const response = await fetch(`http://localhost:3100/addExpense`, {
+  const response = await fetch(`${server}/addExpense`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

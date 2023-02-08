@@ -1,4 +1,4 @@
-import { CreateCalcSheet } from "../components/create-sheet";
+import { CreateCalcSheet } from "../components/create-sheet/create-sheet";
 import "../style-sheets/create-calc-sheet.css";
 
 export const CreateSheetPage = () => {
@@ -8,3 +8,5 @@ export const CreateSheetPage = () => {
     </section>
   );
 };
+
+export default CreateCalcSheet

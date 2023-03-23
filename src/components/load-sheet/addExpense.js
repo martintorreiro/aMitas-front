@@ -1,5 +1,4 @@
 import { v4 } from "uuid";
-import { useModal } from "../../hooks/useModal";
 import { CustomButton } from "../CustomButton/button";
 import { ToggleModal } from "../ToggleModal/toggleModal";
 

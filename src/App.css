@@ -1,6 +1,6 @@
 :root {
-  --primary-blue: #1f98d9;
-  --secondary-blue: #154f94;
+  --primary-blue: #154f94;
+  --secondary-blue:#122243 ;
   --primary-grey: #444444;
   --secondary-grey: #d9dcdf;
   --secundary-white: whitesmoke;
@@ -8,21 +8,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
 
-.color1 {
-  color: #122243;
-}
+
 .color2 {
   color: #154f94;
 }
-.color3 {
-  color: #1f98d9;
-}
-.color4 {
-  color: #20dad8;
-}
-.color5 {
-  color: #73e6e4;
-}
+
 
 * {
   margin: 0;
@@ -40,7 +30,7 @@ body {
 #root {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 67px auto;
+  grid-template-rows: 52px auto;
   grid-template-columns: 100%;
 }
 

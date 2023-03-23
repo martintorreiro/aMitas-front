@@ -1,16 +1,18 @@
-import { useState } from "react";
+import "./panel.css"
+import { lazy, useState } from "react";
 import { useCalcFunctions } from "../../hooks/useCalcFunctions";
 import { AddExpense } from "./addExpense";
 import { AddUser } from "./addUser";
 import { Concepts } from "./contepts";
-import { ResultCalc } from "./result-calc";
 import { Cabecera } from "./header";
-import "./panel.css"
+const  ResultCalc = lazy(() => import ("./result-calc"));
 
 
 export const Panel = ({ dataSheet }) => {
   const [balances, setBalances] = useState(false);
-  const { users, totalCost, result, addExpense, addUser, addUserError } = useCalcFunctions(dataSheet);
+  const [users, setUsers] = useState(dataSheet.users);
+  const [expenses, setExpenses] = useState(dataSheet.expenses);
+  const { addExpense, addUser, addUserError } = useCalcFunctions(dataSheet);
 
   return (
     <section className="panel">
@@ -20,8 +22,8 @@ export const Panel = ({ dataSheet }) => {
         balances={balances}
       ></Cabecera>
       <div className="panel-content">
-        {balances ? (<ResultCalc resultado={result} gastoTotal={totalCost}></ResultCalc>)
-                  : (<Concepts users={users}></Concepts>)
+        {balances ? (<ResultCalc users={users} total={dataSheet.totalAmount}></ResultCalc>)
+                  : (<Concepts expenses={expenses}></Concepts>)
         }
         <div className="panel-controls">
           <AddExpense

@@ -12,6 +12,7 @@ export const WorkSheet = () => {
   const getDataSheet = async (data) => {
     try {
       const dataResponse = await getDataSheetService(data);
+      console.log(dataResponse)
       setWorkSheet(dataResponse.message);
     } catch (error) {
       setError(true);

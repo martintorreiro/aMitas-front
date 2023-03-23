@@ -1,30 +1,30 @@
 import { v4 } from "uuid";
 
-export const Concepts = ({ users }) => {
+export const Concepts = ({ expenses }) => {
  
   return (
-    <ul className="concepts-list">
-      {users.map((user) => {
-        console.log(user);
-        const concepts = user.concepts.map((concept) => {
+    <ul className="concepts-list"> 
+ 
+      {expenses.map((expense) => {
+        console.log(expense);
           
-          return concept ? (
+          return (
             <li key={v4()}>
               <div>
-                <h4>{concept.concept}</h4>
+                <h4>{expense.concept}</h4>
                 <p>
-                  Ha sido pagado por <strong>{user.name}</strong>
+                  Ha sido pagado por <strong>{expense.name}</strong>
                 </p>
               </div>
               <div>
-                <h4>{concept.amount} $</h4>
+                <h4>{expense.amount} $</h4>
               </div>
             </li>
-          ) : null;
-        });
-        
-        return concepts;
-      })}
+          );
+        })
+      }
     </ul>
   );
 };
+
+export default Concepts;

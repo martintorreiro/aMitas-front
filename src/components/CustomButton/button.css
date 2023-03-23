@@ -5,6 +5,7 @@
     height: 34px;
     padding: 0 8px;
     background-color: var(--primary-blue);
+    color: white;
     border: none;
     border-radius: 2px;
 }

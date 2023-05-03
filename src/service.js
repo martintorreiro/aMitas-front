@@ -70,13 +70,14 @@ export const createDataSheetService = async (dataSheet) => {
 };
 
 export const getDataSheetService = async (dataSheet) => {
+  
   const response = await fetch(`${server}/getDS/${dataSheet}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-
+  console.log("hola")
   const json = await response.json();
 
   if (!response.ok) {

@@ -44,8 +44,13 @@
   width: 50%;
   text-align: center;
   padding: 10px 0;
+  
+}
+
+.select-panel li a{
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .select-panel li.active {

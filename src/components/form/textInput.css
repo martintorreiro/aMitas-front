@@ -1,0 +1,52 @@
+    .textInputContainer{
+    position: relative;
+    padding-top: 10px;
+}
+
+.textInputContainer label{
+    position: absolute;
+    background-color: white;
+    padding: 0 2px;
+    left: 8px;
+    top: 18px;
+    z-index: 100;
+    font-size: 12px;
+    transition: all .2s ease;
+}
+
+.textInputContainer input[type="text"]:focus ~ label{
+    top: 0;
+    font-size: 12px;
+    color: var(--primary-blue);
+}
+
+.textInputContainer input.written ~ label{
+    top: 0;
+    font-size: 12px;
+    color: var(--primary-blue);
+}
+
+.textInputContainer input[type="text"]:focus{
+   border: 1px solid var(--primary-blue);
+}
+
+.textInputContainer input {
+    width: 100%;
+    outline: none;
+    padding: 6px 8px;
+    border: 1px solid var(--primary-grey);
+    border-radius: 2px;
+    height: 34px;
+}
+
+.textInputContainer.error input{
+    border: 1px solid var(--primary-red);
+  }
+
+.okMsg{
+    color: var(--primary-green);
+}
+
+.errorMsg{
+    color: var(--primary-red);
+}

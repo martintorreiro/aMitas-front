@@ -15,9 +15,10 @@ const  Register = lazy(() => import ("./pages/register"));
 function App() {
   return (
     <>
-    <Suspense fallback={<span>Cargando</span>}>
+    
       <BrowserRouter>
         <MainHeader />
+        <Suspense fallback={<span>Cargando</span>}>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -26,11 +27,13 @@ function App() {
           <Route
             path="/hoja-de-calculo/:datasheet"
             element={<WorkSheet />}
-          ></Route>
+          >
+          </Route>
           <Route path="/crear-hoja" element={<CreateSheetPage />}></Route>
         </Routes>
+        </Suspense>
       </BrowserRouter>
-      </Suspense>
+      
     </>
   );
 }

@@ -1,7 +1,7 @@
 import "./button.css"
-export const CustomButton = ({children,handleClick})=>{
+export const CustomButton = ({children,handlerClick})=>{
 
 return(
-    <button className="customButton" onClick={handleClick}>{children}</button>
+    <button className="customButton" onClick={handlerClick}>{children}</button>
 )
 }

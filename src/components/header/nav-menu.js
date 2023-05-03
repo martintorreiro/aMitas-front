@@ -29,6 +29,7 @@ export const Menu = () => {
     <div ref={menu}>
       
       <div className="hamburguer" onClick={() => setClicked(!clicked)}>
+      {user ? <span className="loggin-indicator"></span> : null}
         <FontAwesomeIcon icon={solid("bars")} />
       </div>
       <nav >
@@ -51,8 +52,8 @@ export const Menu = () => {
           
           <Link to="/crear-hoja">
             <li onClick={() => setClicked(false)}>
-              <span>Crear Prueba</span> 
-              <FontAwesomeIcon icon={solid("user")} />
+              <span>Crear Prueba</span>
+              <FontAwesomeIcon icon={solid("user")}/>
             </li>
           </Link>
 

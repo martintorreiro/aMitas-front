@@ -1,0 +1,17 @@
+.panel-controls{
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;    
+}
+
+.userList{
+    max-height: 160px;
+    overflow: scroll;
+}
+
+.userList li{
+    padding:6px 12px;
+}

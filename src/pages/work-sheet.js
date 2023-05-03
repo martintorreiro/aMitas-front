@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Panel } from "../components/load-sheet/panel";
+import { Panel } from "../components/panel/panel";
 import { getDataSheetService } from "../service";
 import "../style-sheets/work-sheet.css";
 
@@ -12,12 +12,13 @@ export const WorkSheet = () => {
   const getDataSheet = async (data) => {
     try {
       const dataResponse = await getDataSheetService(data);
-      console.log(dataResponse)
       setWorkSheet(dataResponse.message);
+      setError(false)
     } catch (error) {
-      setError(true);
+      setError(error);
     }
   };
+  
   useEffect(() => {
     getDataSheet(datasheet);
   }, []);
@@ -25,7 +26,6 @@ export const WorkSheet = () => {
   return (
     <>
       {error && <p>Se a producido un error al cargar la hoja de calculos</p>}
-
       {workSheet && <Panel dataSheet={workSheet}></Panel>}
     </>
   );

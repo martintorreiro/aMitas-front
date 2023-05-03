@@ -1,3 +1,5 @@
+
+
 header {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -22,8 +24,9 @@ header a {
   color: var(--primary-blue);
 }
 
-header h1{
-  font-size: 24px;
+header .logo{
+  height: 26px;
+  display: block;
 }
 
 .inactive {
@@ -70,8 +73,25 @@ header h1{
   cursor: pointer;
   background-color: var(--secondary-grey);
 }
+
+.hamburguer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hamburguer:hover {
   cursor: pointer;
+}
+
+.loggin-indicator{
+  display: inline-block;
+  margin-right: 10px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  background-color: rgb(18, 140, 18);
 }
 
 

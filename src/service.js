@@ -1,4 +1,4 @@
-const server = process.env.REACT_APP_SERVER_URL
+const server = process.env.REACT_APP_SERVER_URL;
 
 export const registerService = async (userName, email, password) => {
   const response = await fetch(`${server}/register`, {
@@ -70,14 +70,12 @@ export const createDataSheetService = async (dataSheet) => {
 };
 
 export const getDataSheetService = async (dataSheet) => {
-  
   const response = await fetch(`${server}/getDS/${dataSheet}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-  console.log("hola")
   const json = await response.json();
 
   if (!response.ok) {
@@ -105,13 +103,14 @@ export const addUserService = async (user, dataId) => {
   return json;
 };
 
-export const addExpenseService = async (dataId, concept, amount) => {
+export const addExpenseService = async (userId, concept, amount) => {
+  console.log("service", userId, concept, amount);
   const response = await fetch(`${server}/addExpense`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ dataId, concept, amount }),
+    body: JSON.stringify({ userId, concept, amount }),
   });
 
   const json = await response.json();

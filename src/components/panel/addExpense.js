@@ -6,63 +6,48 @@ import { useAddExpense } from "../../hooks/useAddExpense";
 import { TextInput } from "../form/textInput";
 import { CustomSelect } from "../form/customSelect";
 import { CustomDate } from "../form/customDate";
+import { NumInput } from "../form/numImput";
 
 export const AddExpense = ({ dataSheet }) => {
+  const [concept, setConcept] = useState("");
+  const [amount, setAmount] = useState("");
 
-  const {addExpense} = useAddExpense(dataSheet)
-
+  const { addExpense } = useAddExpense(dataSheet);
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
-    const formInputs = {
-      concept: e.target.elements.concepto.value,
-      user: e.target.elements.select.value,
-      date: e.target.elements.date.value,
-      amount: Number(e.target.elements.cuantia.value),
-    };
-
-    await addExpense();
+    await addExpense(e.target.elements.user.value, concept, amount);
   };
 
-  return (<>
-            <ModalForm handlerSubmit={handlerSubmit}>
+  return (
+    <>
+      <ModalForm handlerSubmit={handlerSubmit}>
+        <TextInput
+          name="concepto"
+          label="Concepto"
+          setValue={setConcept}
+          value={concept}
+        ></TextInput>
 
-              <TextInput
-                name="concepto" 
-                label="Concepto" 
-                onChange={()=>console.log("concepto")} 
-                message="" errorMessage="">
-              </TextInput>
+        <CustomSelect name="user" label="Pagado por">
+          {dataSheet.users.map((user) => (
+            <option key={v4()} value={user.id}>
+              {user.name}
+            </option>
+          ))}
+        </CustomSelect>
 
-              <CustomSelect 
-                name="user" 
-                label="Pagado por"
-                message="" errorMessage=""
-                >
-                  {dataSheet.users.map((user) => (
-                        <option key={v4()} value={user.id}>
-                          {user.name}
-                        </option>
-                    ))}
-              </CustomSelect>
+        <CustomDate name="date" label="Fecha" message="" errorMessage="" />
 
-              <CustomDate name="date" label="Fecha" message="" errorMessage=""/>
+        <NumInput
+          name="cuantia"
+          label="Importe"
+          setValue={setAmount}
+          value={amount}
+        ></NumInput>
 
-              <TextInput
-                name="cuantia" 
-                label="Importe" 
-                onChange={()=>console.log("importe")} 
-                message="" errorMessage="">
-              </TextInput>
-
-              <CustomButton>Añadir</CustomButton>
-
-            </ModalForm>
-          
-          </>)
-
-
-       
-     
-  
+        <CustomButton>Añadir</CustomButton>
+      </ModalForm>
+    </>
+  );
 };

@@ -2,10 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useLocation } from "react-router-dom";
 
-export const Cabecera = ({ dataSheet}) => {
+export const Cabecera = ({ dataSheet }) => {
   let location = useLocation();
-  
-console.log(location.pathname)
+
   return (
     <>
       <div className="panel-header">
@@ -16,11 +15,10 @@ console.log(location.pathname)
           </p>
         </div>
         <ul className="select-panel">
-          
           <li>
             <FontAwesomeIcon icon={solid("rectangle-list")} /> GASTOS
           </li>
-          
+
           <li>
             <FontAwesomeIcon icon={solid("people-arrows")} /> SALDOS
           </li>

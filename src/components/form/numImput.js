@@ -1,14 +1,17 @@
-import { useEffect } from "react";
 import "./textInput.css";
 import validator from "validator";
 
-export const TextInput = ({ name, label, setValue, value, error }) => {
+export const NumInput = ({ name, label, setValue, value, error }) => {
+  const validateDecimal = (str) => {
+    return validator.isDecimal(str, [
+      { force_decimal: false, decimal_digits: "2", locale: "en-US" },
+    ]);
+  };
+
   const handleChange = (e) => {
-    if (
-      validator.isAlphanumeric(e.target.value) ||
-      e.target.value.length == 0
-    ) {
-      setValue(e.target.value);
+    if (validateDecimal(e.target.value) || e.target.value.length == 0) {
+      console.log(Number(e.target.value));
+      setValue(Number(e.target.value));
     }
   };
 
@@ -17,7 +20,7 @@ export const TextInput = ({ name, label, setValue, value, error }) => {
       <div className={`textInputContainer ${error && "error"}`}>
         <input
           className={value && "written"}
-          type="text"
+          type="number"
           id={name}
           name={name}
           value={value}

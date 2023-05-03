@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 
 import { CustomButton } from "../CustomButton/button";
 import Modal from "../modal/modal";
@@ -8,10 +7,8 @@ import { TextInput } from "../form/textInput";
 import { ModalForm } from "../form/modalForm";
 import { useAddUser } from "../../hooks/useAddUser";
 
-export const AddUser = ({dataSheet}) => {
-  
+export const AddUser = ({ dataSheet }) => {
   const [name, setName] = useState("");
-  
 
   const { addUser, message, users, errorMessage } = useAddUser(dataSheet);
 
@@ -19,42 +16,36 @@ export const AddUser = ({dataSheet}) => {
     e.preventDefault();
     await addUser(name);
     e.target.elements.addUser.value = "";
-    setName("")
+    setName("");
   };
 
   const handleChange = (e) => {
+    setName(e.target.value);
 
-    setName(e.target.value)
-
-    if(!name.length>2){
-
+    if (!name.length > 2) {
     }
-
-  }
+  };
 
   return (
-          <>
-        
-            <ul className="userList">
-              {users.map((user)=><li key={v4()}>{user.name}</li>)}
-            </ul>
+    <>
+      <ul className="userList">
+        {users.map((user) => (
+          <li key={v4()}>{user.name}</li>
+        ))}
+      </ul>
 
-            <ModalForm handlerSubmit={handleSubmit}>
+      <ModalForm handlerSubmit={handleSubmit}>
+        <TextInput
+          name="addUser"
+          label="Nombre usuario"
+          setValue={setName}
+          value={name}
+          message={message}
+          errorMessage={errorMessage}
+        />
 
-              <TextInput 
-              name="addUser" 
-              label="Nombre usuario" 
-              handleChange={handleChange} 
-              message={message} errorMessage={errorMessage}
-              />
-
-              <CustomButton>Añadir</CustomButton>
-            
-            </ModalForm>
-          
-           </>
-              )
+        <CustomButton>Añadir</CustomButton>
+      </ModalForm>
+    </>
+  );
 };
-
-
-/* ([A-Za-z])\w+ */

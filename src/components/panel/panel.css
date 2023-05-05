@@ -1,94 +1,90 @@
-.panel-controls{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px 0;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
+.panel-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.userList{
-    max-height: 160px;
-    overflow: scroll;
+.userList {
+  max-height: 160px;
+  overflow: scroll;
 }
 
-.userList li{
-    padding:6px 12px;
+.userList li {
+  padding: 6px 12px;
 }
 
 .panel {
-    background-color: var(--secondary-grey);
-  }
-  
-  .panel .panel-header {
-    color: white;
-    position: relative;
-    background-image: url("../../images/fondo-title.jpg");
-    background-position: center;
-    background-size: cover;
-  }
-  
-  .panel-header h3 {
-    margin-bottom: 10px;
-  }
-  
-  .panel-title {
-    padding: 12px 20px;
-  }
-  
-  .panel-content {
-    background-color: white;
-    padding-bottom: 80px;
-    overflow-y: hidden;
-  }
-  
-  .concepts-list > li {
-    padding: 10px;
-    border-bottom: 3px solid var(--secondary-grey);
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .concepts-list > li p {
-    margin-top: 8px;
-    color: var(--primary-grey);
-  }
-  
-  .select-panel {
-    display: flex;
-  }
-  
-  .select-panel li {
-    width: 50%;
-   
-  }
+  background-color: var(--secondary-grey);
+}
 
-  .select-panel li button{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    border: none;
-    background-color: transparent;
-    color: white;
-  }
+.panel .panel-header {
+  color: white;
+  position: relative;
+  background-image: url("../../images/fondo-title.jpg");
+  background-position: center;
+  background-size: cover;
+}
 
-  .select-panel li svg {
-    font-size: 16px;
-    margin-bottom: 10px;
-    margin-bottom: 6px;
-  }
-  
-  .select-panel li.active {
-    border-bottom: 2px solid orange;
-  }
-  
-  
-  
+.panel-header h3 {
+  margin-bottom: 10px;
+}
+
+.panel-title {
+  padding: 12px 20px;
+}
+
+.panel-content {
+  background-color: white;
+  padding-bottom: 80px;
+  overflow-y: hidden;
+}
+
+.concepts-list > li {
+  padding: 10px;
+  border-bottom: 3px solid var(--secondary-grey);
+  display: flex;
+  justify-content: space-between;
+}
+
+.concepts-list > li p {
+  margin-top: 8px;
+  color: var(--primary-grey);
+}
+
+.select-panel {
+  display: flex;
+}
+
+.select-panel li {
+  width: 50%;
+}
+
+.select-panel li button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.select-panel li svg {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+.select-panel li.active {
+  border-bottom: 2px solid orange;
+}

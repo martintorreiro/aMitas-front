@@ -1,8 +1,7 @@
-
-
 header {
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   z-index: 10;
   position: sticky;
   top: 0;
@@ -24,7 +23,7 @@ header a {
   color: var(--primary-blue);
 }
 
-header .logo{
+header .logo {
   height: 26px;
   display: block;
 }
@@ -53,9 +52,9 @@ header .logo{
   border-radius: 0 0 8px 8px;
   overflow: hidden;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-
 
 .menu-list li {
   width: 100%;
@@ -74,7 +73,7 @@ header .logo{
   background-color: var(--secondary-grey);
 }
 
-.hamburguer{
+.hamburguer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +83,7 @@ header .logo{
   cursor: pointer;
 }
 
-.loggin-indicator{
+.loggin-indicator {
   display: inline-block;
   margin-right: 10px;
   height: 12px;
@@ -94,14 +93,12 @@ header .logo{
   background-color: rgb(18, 140, 18);
 }
 
-
-
 @media (min-width: 900px) {
   .hamburguer {
     display: none;
   }
 
-  .menu-list{
+  .menu-list {
     transform: none;
     position: relative;
     top: auto;
@@ -111,13 +108,12 @@ header .logo{
     display: flex;
     flex-direction: row;
     border: none;
-    box-shadow:none;
+    box-shadow: none;
   }
 
-  .menu-list a,.menu-list li{
+  .menu-list a,
+  .menu-list li {
     color: var(--primary-blue);
     width: auto;
   }
-
-
 }

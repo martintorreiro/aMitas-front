@@ -1,43 +1,43 @@
-.modal{
-    z-index: 10;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,.5);
-    padding: 20px;
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
 }
 
-.modalContainer{
-    background-color: #fff;
-    position: relative;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.modalContainer {
+  background-color: #fff;
+  position: relative;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.modalHeader{
-display: flex;
-align-items: center;
-margin-bottom: 20px;
-padding-bottom: 20px;
-border-bottom: 1px solid #e8e8e8;
+.modalHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
-.closeModal{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-    border: none;
-    background: none;
-    border-radius: 5px;
+.closeModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  background: none;
+  border-radius: 5px;
 }
 
-.closeModal:hover{
-    background-color: #f2f2f2;
+.closeModal:hover {
+  background-color: #f2f2f2;
 }

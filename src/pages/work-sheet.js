@@ -7,20 +7,18 @@ export const WorkSheet = () => {
   const [workSheet, setWorkSheet] = useState("");
   const [error, setError] = useState(false);
   const { datasheet } = useParams();
-    console.log("page")
 
   const getDataSheet = async (data) => {
     try {
       const dataResponse = await getDataSheetService(data);
       setWorkSheet(dataResponse.message);
-      setError(false)
+      setError(false);
     } catch (error) {
       setError(error);
     }
-  }; 
-  
+  };
+
   useEffect(() => {
-  
     getDataSheet(datasheet);
   }, [datasheet]);
 

@@ -43,10 +43,10 @@
   border: 1px solid var(--primary-red);
 }
 
-.okMsg {
-  color: var(--primary-green);
-}
-
-.errorMsg {
-  color: var(--primary-red);
+.inputError {
+  padding: 6px 12px;
+  border-radius: 0 0 2px 2px;
+  font-size: 12px;
+  color: white;
+  background-color: var(--primary-red);
 }

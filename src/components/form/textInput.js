@@ -26,7 +26,7 @@ export const TextInput = ({ name, label, setValue, value, error }) => {
 
         <label htmlFor={name}>{label}</label>
         {error && (
-          <div className="errorMsg">
+          <div className="inputError">
             <p>{error}</p>
           </div>
         )}

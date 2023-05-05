@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Panel } from "../components/panel/panel";
 import { getDataSheetService } from "../service";
-import "../style-sheets/work-sheet.css";
 
 export const WorkSheet = () => {
-  const { datasheet } = useParams();
   const [workSheet, setWorkSheet] = useState("");
   const [error, setError] = useState(false);
+  const { datasheet } = useParams();
+    console.log("page")
 
   const getDataSheet = async (data) => {
     try {
@@ -17,11 +17,12 @@ export const WorkSheet = () => {
     } catch (error) {
       setError(error);
     }
-  };
+  }; 
   
   useEffect(() => {
+  
     getDataSheet(datasheet);
-  }, []);
+  }, [datasheet]);
 
   return (
     <>

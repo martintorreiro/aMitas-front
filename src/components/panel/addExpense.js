@@ -9,24 +9,49 @@ import { CustomDate } from "../form/customDate";
 import { NumInput } from "../form/numImput";
 
 export const AddExpense = ({ dataSheet }) => {
-  const [concept, setConcept] = useState("");
-  const [amount, setAmount] = useState("");
+const date = new Date()
 
-  const { addExpense } = useAddExpense(dataSheet);
+  const [concept, setConcept] = useState("");
+  const [conceptErr, setConceptErr] = useState("");
+  const [amount, setAmount] = useState("")
+  const [amountErr, setAmountErr] = useState("");
+  const [paymentDate, setPaymentDate] = useState(date.toJSON().slice(0,10))
+
+  const { addExpense,addExpenseError,resAddExpense } = useAddExpense(dataSheet);
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
-    await addExpense(e.target.elements.user.value, concept, amount);
+
+    if(!concept){
+      setConceptErr("Campo obligatorio")
+    }else{
+      setConceptErr("")
+    }
+
+    if(!amount){
+      setAmountErr("Campo obligatorio")
+    }else{
+      setAmountErr("")
+    }
+
+    if(amount&&concept){
+
+      await addExpense(e.target.elements.user.value, concept, amount, paymentDate);
+    }
+    
   };
 
   return (
     <>
+      {addExpenseError&&<p>{addExpenseError}</p>}
+      {resAddExpense&&<p>{resAddExpense}</p>}
       <ModalForm handlerSubmit={handlerSubmit}>
         <TextInput
           name="concepto"
           label="Concepto"
           setValue={setConcept}
           value={concept}
+          error={conceptErr}
         ></TextInput>
 
         <CustomSelect name="user" label="Pagado por">
@@ -37,13 +62,14 @@ export const AddExpense = ({ dataSheet }) => {
           ))}
         </CustomSelect>
 
-        <CustomDate name="date" label="Fecha" message="" errorMessage="" />
+        <CustomDate name="date" label="Fecha" value={paymentDate} setValue={setPaymentDate} />
 
         <NumInput
           name="cuantia"
           label="Importe"
           setValue={setAmount}
           value={amount}
+          error={amountErr}
         ></NumInput>
 
         <CustomButton>Añadir</CustomButton>

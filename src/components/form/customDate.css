@@ -12,9 +12,8 @@
     border: 1px solid var(--primary-grey);
     border-radius: 2px;
     appearance: none;
-    visibility: visible;
-}
 
+}
 
 .customDateContainer label{
     position: absolute;

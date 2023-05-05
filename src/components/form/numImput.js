@@ -1,19 +1,14 @@
+import { useState } from "react";
 import "./textInput.css";
-import validator from "validator";
 
 export const NumInput = ({ name, label, setValue, value, error }) => {
-  const validateDecimal = (str) => {
-    return validator.isDecimal(str, [
-      { force_decimal: false, decimal_digits: "2", locale: "en-US" },
-    ]);
-  };
 
-  const handleChange = (e) => {
-    if (validateDecimal(e.target.value) || e.target.value.length == 0) {
-      console.log(Number(e.target.value));
-      setValue(Number(e.target.value));
+  const handleBlur = (e) => {
+    if(e.target.value.length>0){
+      const num = Number(e.target.value).toFixed(2)
+      setValue(num);
     }
-  };
+  }
 
   return (
     <>
@@ -21,15 +16,17 @@ export const NumInput = ({ name, label, setValue, value, error }) => {
         <input
           className={value && "written"}
           type="number"
+          step="any"
+          value={value}
           id={name}
           name={name}
-          value={value}
-          onChange={handleChange}
+          onChange={(e)=>setValue(e.target.value)}
+          onBlur={handleBlur}
         />
 
         <label htmlFor={name}>{label}</label>
         {error && (
-          <div className="errorMsg">
+          <div className="inputError">
             <p>{error}</p>
           </div>
         )}

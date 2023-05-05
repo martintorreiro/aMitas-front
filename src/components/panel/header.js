@@ -1,9 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { useLocation } from "react-router-dom";
+import { solid,regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 
-export const Cabecera = ({ dataSheet }) => {
-  let location = useLocation();
+export const Cabecera = ({ dataSheet, setBalances, balances }) => {
 
   return (
     <>
@@ -15,12 +13,16 @@ export const Cabecera = ({ dataSheet }) => {
           </p>
         </div>
         <ul className="select-panel">
-          <li>
-            <FontAwesomeIcon icon={solid("rectangle-list")} /> GASTOS
+          <li className={!balances&&"active"}>
+            <button onClick={(e)=>setBalances(false)}>
+              <FontAwesomeIcon icon={regular("rectangle-list")} /> GASTOS
+            </button>
           </li>
 
-          <li>
-            <FontAwesomeIcon icon={solid("people-arrows")} /> SALDOS
+          <li className={balances&&"active"}>
+            <button onClick={(e)=>setBalances(true)}>
+              <FontAwesomeIcon icon={solid("people-arrows")} /> SALDOS
+            </button>
           </li>
         </ul>
       </div>

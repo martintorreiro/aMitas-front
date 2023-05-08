@@ -13,6 +13,7 @@ export const Panel = ({ dataSheet }) => {
   const [balances, setBalances] = useState(false);
   const [showAddUser, setShowAddUser] = useState(false);
   const [showAddExpense, setShowAddExpense] = useState(false);
+  const [showSettings, setShowSettings] = useState(false)
 
   return (
     <section className="panel">
@@ -20,6 +21,7 @@ export const Panel = ({ dataSheet }) => {
         dataSheet={dataSheet}
         setBalances={setBalances}
         balances={balances}
+        setShowSettings={setShowSettings}
       ></Cabecera>
 
       <div className="panel-content">
@@ -53,6 +55,13 @@ export const Panel = ({ dataSheet }) => {
         showModal={showAddUser}
         setShowModal={setShowAddUser}
         title="Añadir Usuario"
+      >
+        <AddUser dataSheet={dataSheet} />
+      </Modal>
+      <Modal
+        showModal={showSettings}
+        setShowModal={setShowSettings}
+        title="Mis ajustes"
       >
         <AddUser dataSheet={dataSheet} />
       </Modal>

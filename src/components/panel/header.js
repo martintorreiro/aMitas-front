@@ -7,9 +7,6 @@ export const Cabecera = ({ dataSheet, setBalances, balances }) => {
       <div className="panel-header">
         <div className="panel-title">
           <h3>{dataSheet.title}</h3>
-          <p>
-            Creador por {dataSheet.creator}, el {dataSheet.dateCreation}
-          </p>
         </div>
         <ul className="select-panel">
           <li className={`${!balances && "active"}`}>

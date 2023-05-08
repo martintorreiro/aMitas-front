@@ -43,19 +43,26 @@ export const Menu = () => {
             </li>
           </Link>
           
-          <Link to="/hoja-de-calculo/example">
-            <li onClick={() => setClicked(false)}>
-              <span>Pruébalo</span> 
-              <FontAwesomeIcon icon={solid("user")} />
-            </li>
-          </Link>
+
+          {!user&&(
+                  <Link to="/hoja-de-calculo/example">
+                    <li onClick={() => setClicked(false)}>
+                      <span>Pruébalo</span> 
+                      <FontAwesomeIcon icon={solid("user")} />
+                    </li>
+                  </Link>
+                  )
+          }
           
-          <Link to="/crear-hoja">
-            <li onClick={() => setClicked(false)}>
-              <span>Crear Prueba</span>
-              <FontAwesomeIcon icon={solid("user")}/>
-            </li>
-          </Link>
+          {user&&(
+                  <Link to="/crear-hoja">
+                    <li onClick={() => setClicked(false)}>
+                      <span>Crear gastos compartidos</span>
+                      <FontAwesomeIcon icon={solid("user")}/>
+                    </li>
+                  </Link>
+                  )
+          }
 
           {user ? (
               <Link to="/">
@@ -64,22 +71,22 @@ export const Menu = () => {
                   <FontAwesomeIcon icon={solid("user")} />
                 </li>
               </Link>
-              ) : (
+              ) : (<>
                 <Link to="/login">
                   <li onClick={() => setClicked(false)}>
                     <span>Iniciar Sesion</span>
                     <FontAwesomeIcon icon={solid("user")} />
                   </li>
                 </Link>
-              
-              )}
+                <Link to="/register">
+                <li onClick={() => setClicked(false)}>
+                  <span>Registrarse</span>
+                  <FontAwesomeIcon icon={solid("user-plus")} />
+                </li>
+              </Link>
+              </>)}
 
-          <Link to="/register">
-            <li onClick={() => setClicked(false)}>
-              <span>Registrarse</span>
-              <FontAwesomeIcon icon={solid("user-plus")} />
-            </li>
-          </Link>
+          
 
         </ul>
       </nav>

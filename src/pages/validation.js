@@ -42,8 +42,8 @@ export const Validate = () => {
           <div className="button-container">
             <button className="button">Validar</button>
           </div>
-          {loading ? <p>Loading</p> : <></>}
-          {error ? <p>{error}</p> : <></>}
+          {loading && <p>Loading</p>}
+          {error && <p>{error}</p>}
         </fieldset>
       </form>
     </section>

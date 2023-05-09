@@ -19,7 +19,9 @@ export const useLogin = () => {
     try {
       const loginResponse = await loginService(email, password);
 
-      loginToken(loginResponse.message.token, email);
+      const user = {email:email,userId: loginResponse.message.userId}
+
+      loginToken(loginResponse.message.token, user );
 
       navigate("/");
     } catch (error) {

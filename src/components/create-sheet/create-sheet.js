@@ -6,7 +6,7 @@ import { createDataSheetService } from "../../service";
 import { useNavigate } from "react-router-dom";
 import { AddUser } from "./add-user";
 
-export const CreateCalcSheet = () => {
+export const CreateCalcSheet = ({userId}) => {
   const [title, setTitle] = useState("");
   const [badge, setBadge] = useState("EUR");
   const [description, setDescription] = useState();
@@ -23,6 +23,7 @@ console.log(userList)
       title: title,
       description: description,
       badge: badge,
+      creator: userId,
       users: userList.map((user) => {
         return { name: user, concepts: [] };
       }),

@@ -1,8 +1,14 @@
 const MyProfile = ({user}) => {
     
+    const sharedList = "hols"
 
     return(
-        <p>mi perfil</p>
+        <section>
+            <ul>
+                {user}
+            </ul>
+
+        </section>
     )
 }
 

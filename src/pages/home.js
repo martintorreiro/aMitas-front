@@ -4,10 +4,10 @@ import Presentacion from "./presentacion";
 import MyProfile from "./myProfile";
 
 export const Home = () =>{
-    const { user, logoutToken } = useContext(AuthContext);
+    const { userId } = useContext(AuthContext);
 
     return (<>
-            {user ?<MyProfile user={user}></MyProfile>:<Presentacion/>}
+            {userId ?<MyProfile userId={userId}></MyProfile>:<Presentacion/>}
             </>
     )
 }

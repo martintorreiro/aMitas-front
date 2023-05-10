@@ -122,14 +122,13 @@ export const addExpenseService = async (userId, concept, amount) => {
   return json;
 };
 
-export const getSharedList = async (user) => {
-  console.log("service", user);
-  const response = await fetch(`${server}/getSharedList`, {
-    method: "POST",
+export const getSharedListService = async (userId) => {
+ console.log("service",userId)
+  const response = await fetch(`${server}/getSharedList/${userId}`, {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ user }),
+    }
   });
 
   const json = await response.json();

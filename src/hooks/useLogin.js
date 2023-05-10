@@ -18,10 +18,8 @@ export const useLogin = () => {
     setLoading("Loading");
     try {
       const loginResponse = await loginService(email, password);
-
-      const user = {email:email,userId: loginResponse.message.userId}
-
-      loginToken(loginResponse.message.token, user );
+      
+      loginToken(loginResponse.message.token, email, loginResponse.message.userId );
 
       navigate("/");
     } catch (error) {

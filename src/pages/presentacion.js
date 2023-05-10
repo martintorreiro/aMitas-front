@@ -1,10 +1,11 @@
-import travel from "../images/dinner.webp"; 
-import "./presentacion.css"
+import travel from "../images/dinner.webp";
+import "./presentacion.css";
 
 export const Presentacion = () => {
+  console.log("jkasa");
+
   return (
     <section className="home-page">
-
       <div className="home-page_header">
         <h2>Organiza los gastos con tus compañeros</h2>
         <img src={travel} alt="foto cena"></img>
@@ -42,4 +43,4 @@ export const Presentacion = () => {
   );
 };
 
-export default Presentacion
+export default Presentacion;

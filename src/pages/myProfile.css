@@ -1,0 +1,11 @@
+.shared-list > li div {
+  padding: 10px;
+}
+
+.shared-list > li h3 {
+  font-size: 16px;
+}
+
+.shared-list > li span {
+  font-size: 12px;
+}

@@ -15,7 +15,6 @@ export const AddUser = ({ dataSheet }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await addUser(name);
-    e.target.elements.addUser.value = "";
     setName("");
   };
 

@@ -23,10 +23,13 @@
 .panel {
   background-color: var(--secondary-grey);
   display: grid;
-  grid-template-rows: 15% 75% 10%;
+  grid-template-rows: 20% 80%;
 }
 
 .panel .panel-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   color: white;
   position: relative;
   background-image: url("../../images/fondo-title.jpg");
@@ -43,14 +46,17 @@
 }
 
 .panel-content {
-  background-color: white;
-  
-  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+.panel-content {
+  margin-bottom: 90px;
 }
 
 .concepts-list > li {
   padding: 10px;
-  border-bottom: 3px solid var(--secondary-grey);
+  background-color: white;
+  margin-bottom: 2px;
   display: flex;
   justify-content: space-between;
 }

@@ -10,10 +10,12 @@ const ResultCalc = lazy(() => import("./result-calc"));
 const Expenses = lazy(() => import("./expenses"));
 
 export const Panel = ({ dataSheet }) => {
+  console.log("sharedList", dataSheet);
+  const [sharedList, setSharedList] = useState(false);
   const [balances, setBalances] = useState(false);
   const [showAddUser, setShowAddUser] = useState(false);
   const [showAddExpense, setShowAddExpense] = useState(false);
-  const [showSettings, setShowSettings] = useState(false)
+  const [showSettings, setShowSettings] = useState(false);
 
   return (
     <section className="panel">
@@ -25,14 +27,13 @@ export const Panel = ({ dataSheet }) => {
       ></Cabecera>
 
       <div className="panel-content">
-        {balances ? (
-          <ResultCalc
-            users={dataSheet.users}
-            total={dataSheet.totalAmount}
-          ></ResultCalc>
-        ) : (
-          <Expenses expenses={dataSheet.expenses}></Expenses>
-        )}
+        <ResultCalc
+          balances={balances}
+          users={dataSheet.users}
+          total={dataSheet.totalAmount}
+        ></ResultCalc>
+
+        <Expenses expenses={dataSheet.expenses} balances={balances}></Expenses>
       </div>
 
       <div className="panel-controls">

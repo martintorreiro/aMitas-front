@@ -23,7 +23,7 @@ const MyProfile = ({ userId }) => {
 
   return (
     <>
-      <section>
+      <section className="my-profile">
         <ul className="shared-list">
           <li>
             <Link to="/hoja-de-calculo/example">

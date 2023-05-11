@@ -1,11 +1,23 @@
+.my-profile{
+  background-color: var(--secondary-grey);
+}
+
+.shared-list > li{
+  margin-bottom: 2px;
+}
+
 .shared-list > li div {
-  padding: 10px;
+  padding: 10px 18px;
+  background-color: white;
 }
 
 .shared-list > li h3 {
   font-size: 16px;
+  color: black;
+  margin-bottom: 6px;
 }
 
 .shared-list > li span {
   font-size: 12px;
+  color: var(--primary-grey);
 }

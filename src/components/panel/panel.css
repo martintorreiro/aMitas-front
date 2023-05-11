@@ -22,6 +22,8 @@
 
 .panel {
   background-color: var(--secondary-grey);
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
 }
 
 .panel .panel-header {
@@ -42,7 +44,7 @@
 
 .panel-content {
   background-color: white;
-  padding-bottom: 80px;
+  
   overflow-y: hidden;
 }
 

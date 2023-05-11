@@ -18,7 +18,7 @@ function App() {
     
       <BrowserRouter>
         <MainHeader />
-        <Suspense fallback={<span>Cargando</span>}>
+        <Suspense /* fallback={<span>Cargando</span>} */>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>

@@ -30,9 +30,9 @@ body {
 }
 
 #root {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 52px auto;
+  grid-template-rows: 6% 94%;
   grid-template-columns: 100%;
 }
 

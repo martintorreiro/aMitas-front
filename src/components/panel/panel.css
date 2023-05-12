@@ -13,7 +13,7 @@
 
 .userList {
   max-height: 160px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .userList li {
@@ -46,7 +46,7 @@
 }
 
 .panel-content {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .panel-content {
